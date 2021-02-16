@@ -1,6 +1,6 @@
 {
   "name": "@ws-widget/resolver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/public-api.ts",
   "peerDependencies": {
     "@angular/animations": "~8.2.1",

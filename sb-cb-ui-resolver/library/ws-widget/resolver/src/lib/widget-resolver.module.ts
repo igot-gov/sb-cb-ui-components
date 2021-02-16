@@ -8,6 +8,7 @@ import { UnresolvedComponent } from './unresolved/unresolved.component'
 import { MatButtonModule, MatIconModule, MatCardModule } from '@angular/material'
 import { NsWidgetResolver } from './widget-resolver.model'
 import { WidgetResolverService } from './widget-resolver.service'
+import { ConfigurationsService } from '@ws-widget/utils'
 import {
   WIDGET_RESOLVER_GLOBAL_CONFIG,
   WIDGET_RESOLVER_SCOPED_CONFIG,
@@ -31,6 +32,7 @@ import { WidgetBaseComponent } from './widget-base.component'
     UnresolvedComponent,
     WidgetBaseComponent,
   ],
+  providers: [ConfigurationsService],
 })
 export class WidgetResolverModule {
   static forRoot(config: NsWidgetResolver.IRegistrationConfig[]): ModuleWithProviders {
