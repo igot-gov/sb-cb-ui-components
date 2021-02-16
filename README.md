@@ -6,8 +6,8 @@
 ## install Resolver
 `npm i @ws-widget/resolver`
 
-## install Resolver
+## install Collection
 `npm i @ws-widget/collection`
 
-## install Resolver
+## install Utils
 `npm i @ws-widget/utils`
