@@ -1,5 +1,5 @@
 import { Directive, Input, ViewContainerRef, OnChanges } from '@angular/core'
-// import { LoggerService } from '@ws-widget/utils'
+import { LoggerService } from '@ws-widget/utils'
 import { NsWidgetResolver } from './widget-resolver.model'
 import { WidgetResolverService } from './widget-resolver.service'
 
@@ -11,15 +11,15 @@ export class WidgetResolverDirective implements OnChanges {
   constructor(
     private viewContainerRef: ViewContainerRef,
     private widgetResolverSvc: WidgetResolverService,
-    // private logger: LoggerService,
+    private logger: LoggerService,
   ) { }
 
   ngOnChanges() {
     if (!this.widgetResolverSvc.isInitialized) {
-      // this.logger.error(
-      //   'Widgets Registration Not Done. Used Before Initialization.',
-      //   this.wsResolverWidget,
-      // )
+      this.logger.error(
+        'Widgets Registration Not Done. Used Before Initialization.',
+        this.wsResolverWidget,
+      )
       return
     }
     if (this.wsResolverWidget) {
