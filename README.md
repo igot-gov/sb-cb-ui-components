@@ -1,9 +1,13 @@
 # sb-cb-ui libraries 
 
 
-#installations 
+# installations 
 
+## install Resolver
+`npm i @ws-widget/resolver`
 
-npm i @ws-widget/resolver
-npm i @ws-widget/collection
-npm i @ws-widget/utils
+## install Resolver
+`npm i @ws-widget/collection`
+
+## install Resolver
+`npm i @ws-widget/utils`
