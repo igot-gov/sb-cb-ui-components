@@ -1,1 +1,1 @@
-# sb-cb-ui-components
+# sb-cb-ui-resolver
