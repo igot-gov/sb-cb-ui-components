@@ -1,5 +1,5 @@
-@import 'ws-mixins';
-@import 'ws-vars';
+// @import 'ws-mixins';
+// @import 'ws-vars';
 
 .user-image {
   $icon-size: 36px;
@@ -15,12 +15,16 @@
   // font-size: 24px !important;
   display: flex;
 }
-.mat-expansion-panel-header-title{
-  margin-left: 5px;;
+
+.mat-expansion-panel-header-title {
+  margin-left: 5px;
+  ;
 }
-mat-expansion-panel-header{
+
+mat-expansion-panel-header {
   padding: 0;
 }
+
 .activity-button {
   border-radius: 2px !important;
   background-color: #05a7c9 !important;
@@ -37,10 +41,10 @@ mat-expansion-panel-header{
   margin-bottom: 1.5rem !important;
   padding-right: 24px !important;
 
-  @include breakpoint-lt-m {
-    margin-top: 0.5rem !important;
-    margin-bottom: 1.5rem !important;
-  }
+  // @include breakpoint-lt-m {
+  //   margin-top: 0.5rem !important;
+  //   margin-bottom: 1.5rem !important;
+  // }
 
 }
 
@@ -61,21 +65,21 @@ mat-expansion-panel-body {
 .btn-display-top {
   margin-top: 0.25rem !important;
 
-  @include breakpoint-lt-m {
-    display: none;
-  }
+  // @include breakpoint-lt-m {
+  //   display: none;
+  // }
 }
 
 .btn-display-bottom {
   margin-top: 0.25rem !important;
 
-  @include breakpoint-gt-m {
-    display: none
-  }
+  // @include breakpoint-gt-m {
+  //   display: none
+  // }
 
-  @include breakpoint-m {
-    display: none;
+  // @include breakpoint-m {
+  //   display: none;
 
-  }
+  // }
 
 }

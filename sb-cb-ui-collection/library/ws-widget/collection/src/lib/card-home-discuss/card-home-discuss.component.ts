@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core'
 import { WidgetBaseComponent, NsWidgetResolver } from '@ws-widget/resolver'
-import { DiscussService } from '@ws/app/src/lib/routes/discuss/services/discuss.service'
+// import { DiscussService } from '@ws/app/src/lib/routes/discuss/services/discuss.service'
 
 /* tslint:disable */
 import _ from 'lodash'
@@ -11,14 +11,17 @@ import { Router } from '@angular/router'
   selector: 'ws-widget-home-discuss-component',
   templateUrl: './card-home-discuss.component.html',
   styleUrls: ['./card-home-discuss.component.scss'],
-  providers: [DiscussService],
+  // providers: [DiscussService],
 })
 export class CardHomeDiscussComponent extends WidgetBaseComponent implements OnInit, NsWidgetResolver.IWidgetData<any> {
   @Input() widgetData: any
   discuss!: NSDiscuss.IDiscuss
   @HostBinding('id')
   public id = 'h-d-component'
-  constructor(private discussService: DiscussService, private router: Router) {
+  constructor(
+    // private discussService: DiscussService,
+    private router: Router
+  ) {
     super()
   }
 
@@ -48,10 +51,10 @@ export class CardHomeDiscussComponent extends WidgetBaseComponent implements OnI
   }
 
   fillPopular() {
-    this.discussService.fetchRecentD().subscribe((response: any) => {
-      this.discuss = _.get(response, 'topics')
-      // console.log(this.discuss)
-    })
+    // this.discussService.fetchRecentD().subscribe((response: any) => {
+    //   this.discuss = _.get(response, 'topics')
+    //   // console.log(this.discuss)
+    // })
   }
 
   getDiscussion(discuss: any) {

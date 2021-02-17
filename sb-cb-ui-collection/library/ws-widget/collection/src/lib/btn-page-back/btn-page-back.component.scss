@@ -1,6 +1,16 @@
-@import 'ws-common';
-@import 'ws-vars';
-@import 'ws-mixins';
+// @import 'ws-common';
+// @import 'ws-vars';
+// @import 'ws-mixins';
+$max-screen: 1202px;
+$size-s: 12px;
+$size-m: 16px;
+
+%page-center {
+  // max-width: $page-center;
+  max-width: $max-screen;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 
 .container-balanced {
   @extend %page-center;

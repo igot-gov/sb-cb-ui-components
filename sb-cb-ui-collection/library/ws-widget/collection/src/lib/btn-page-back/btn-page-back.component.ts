@@ -2,7 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations'
 import { Component, HostBinding, Input, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { NsWidgetResolver, WidgetBaseComponent } from '@ws-widget/resolver'
-// import { ConfigurationsService, NsInstanceConfig } from '@ws-widget/utils'
+import { ConfigurationsService, NsInstanceConfig } from '@ws-widget/utils'
 import { BtnPageBackService } from './btn-page-back.service'
 type TUrl = undefined | 'none' | 'back' | string
 @Component({
@@ -32,20 +32,20 @@ export class BtnPageBackComponent extends WidgetBaseComponent
   public id = 'nav-back'
   visible = false
   enablePeopleSearch = true
-  // hubsList!: NsInstanceConfig.IHubs[]
+  hubsList!: NsInstanceConfig.IHubs[]
   constructor(
     private btnBackSvc: BtnPageBackService,
     private router: Router,
-    // private configSvc: ConfigurationsService,
+    private configSvc: ConfigurationsService,
   ) {
     super()
   }
 
   ngOnInit() {
-    // const instanceConfig = this.configSvc.instanceConfig
-    // if (instanceConfig) {
-    //   this.hubsList = (instanceConfig.hubs || []).filter(i => i.active)
-    // }
+    const instanceConfig = this.configSvc.instanceConfig
+    if (instanceConfig) {
+      this.hubsList = (instanceConfig.hubs || []).filter(i => i.active)
+    }
     this.presentUrl = this.router.url
 
   }

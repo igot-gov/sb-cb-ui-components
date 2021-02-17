@@ -1,5 +1,8 @@
-@import 'ws-vars';
-@import 'ws-mixins';
+// @import 'ws-vars';
+// @import 'ws-mixins';
+$size-m: 16px;
+$size-s: 12px;
+$card-standard-width: 268px;
 
 .card-minimal-container {
   position: relative;
@@ -119,11 +122,11 @@
   overflow: hidden;
   box-sizing: border-box;
 
-  @include breakpoint-xs {
-    $card-width: 200px;
-    width: $card-width;
-    height: 240px;
-  }
+  // @include breakpoint-xs {
+  //   $card-width: 200px;
+  //   width: $card-width;
+  //   height: 240px;
+  // }
 
   .progress-bar {
     display: block;
@@ -142,9 +145,9 @@
     display: block;
     object-fit: contain;
 
-    @include breakpoint-xs {
-      height: 115px;
-    }
+    // @include breakpoint-xs {
+    //   height: 115px;
+    // }
   }
 
   .complexity {
@@ -213,9 +216,9 @@
     -webkit-box-orient: vertical;
     text-align: justify;
 
-    @include breakpoint-xs {
-      -webkit-line-clamp: 8;
-    }
+    // @include breakpoint-xs {
+    //   -webkit-line-clamp: 8;
+    // }
   }
 }
 

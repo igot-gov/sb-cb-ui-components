@@ -13,7 +13,10 @@ export class CardHomeNetworkComponent extends WidgetBaseComponent implements OnI
   imageSize = 'm'
   ngOnInit(): void {
   }
-  getUserFullName() {
+  getUserFullName(user: any) {
+    if (user) {
+
+    }
     return 'SH'
   }
   getUserSize() {
