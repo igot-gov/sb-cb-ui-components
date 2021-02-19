@@ -1,0 +1,6 @@
+# Dependencies
+/node_modules
+
+# Output
+/theme.scss
+/dist

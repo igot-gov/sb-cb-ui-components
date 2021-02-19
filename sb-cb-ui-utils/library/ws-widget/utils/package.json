@@ -1,7 +1,14 @@
 {
   "name": "@ws-widget/utils",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "./src/public-api.ts",
+  "dependencies": {
+    "ngx-image-cropper": "^3.3.4",
+    "keycloak-angular": "^6.1.0",
+    "@types/lodash": "^4.14.168",
+    "moment": "^2.29.1",
+    "rxjs": "~6.5.2"
+  },
   "peerDependencies": {
     "@angular/animations": "~8.2.1",
     "@angular/cdk": "~8.1.2",

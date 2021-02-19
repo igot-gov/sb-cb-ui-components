@@ -1,0 +1,23 @@
+{
+  "name": "@ws-widget/design-system",
+  "version": "0.0.3",
+  "description": "A repository to illustrate how to share palette and typography through NPM",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "merge": "gulp",
+    "copyScss": "xcopy 'src/' 'dist/'"
+  },
+  "files": [
+    "src/assets/*",
+    "src/styles/*",
+    "src/themes/*",
+    "src/styles.scss",
+    "src/tailwind-build.scss"
+  ],
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-scss-combine": "^1.0.0"
+  }
+}
