@@ -1,0 +1,39 @@
+@import '~@ws-widget/design-system/src/styles/_ws-vars.scss';
+@import '~@ws-widget/design-system/src/styles/_ws-mixins.scss';
+
+
+
+.textView {
+  width: calc(100% - 32px);
+}
+
+.spinner {
+  margin-left: 36%;
+}
+
+
+.table {
+  width: 100% !important;
+
+  @include breakpoint-lt-m {
+    width: 100%;
+    margin: 1em 12em 2em -1em;
+  }
+}
+
+td.mat-cell {
+  padding: 10px !important;
+}
+
+th.mat-header-cell {
+  padding: 10px !important;
+}
+
+.submissionbutton {
+  font-size: 16px !important;
+
+  @include breakpoint-lt-m {
+    font-size: 12px !important;
+
+  }
+}
