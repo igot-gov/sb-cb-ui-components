@@ -54,7 +54,7 @@ export class ContentPickerV2Component implements OnInit, OnDestroy {
     this.searchReq = {
       query: '',
       didYouMean: false,
-      locale: ['en']
+      locale: ['en'],
       // locale: [this.searchServSvc.getLanguageSearchIndex(
       //   this.configSvc.activeLocale && this.configSvc.activeLocale.locals[0] || 'en'
       // )],
