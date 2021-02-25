@@ -4,7 +4,7 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "@ws-widget/utils": "@ws-widget/utils"
+      "@sunbird-cb/utils": "@sunbird-cb/utils"
     }
   }
 }
