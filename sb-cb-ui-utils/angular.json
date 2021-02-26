@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "project",
   "projects": {
-    "@ws-widget/utils": {
+    "@sunbird-cb/utils": {
       "projectType": "library",
       "root": "library/ws-widget/utils",
       "sourceRoot": "library/ws-widget/utils/src",
@@ -39,7 +39,7 @@
       }
     }
   },
-  "defaultProject": "@ws-widget/utils",
+  "defaultProject": "@sunbird-cb/utils",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"

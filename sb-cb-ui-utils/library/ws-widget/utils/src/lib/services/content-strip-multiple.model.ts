@@ -1,7 +1,7 @@
-import { NsWidgetResolver } from '@ws-widget/resolver'
 import { NSSearch } from './widget-search.model'
 import { NsContent } from './widget-content.model'
 import { NsCardContent } from './card-content.model'
+import { NsWidgetResolver } from './widget-resolver.model'
 
 export namespace NsContentStripMultiple {
   export interface IContentStripMultiple {

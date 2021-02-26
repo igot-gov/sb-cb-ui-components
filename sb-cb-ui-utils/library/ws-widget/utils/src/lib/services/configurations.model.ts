@@ -1,5 +1,5 @@
-import { NsWidgetResolver } from '@ws-widget/resolver'
 import { NsPage } from '../resolvers/page.model'
+import { NsWidgetResolver } from './widget-resolver.model'
 export namespace NsInstanceConfig {
   export interface IConfig {
     authoring: {
