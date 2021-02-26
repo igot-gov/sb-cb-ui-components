@@ -241,6 +241,13 @@ export namespace NsUser {
     email?: string
     departmentName?: string
     userName?: string
+    firstName?: string
+    surName?: string
+    middleName?: string
+    lastName?: string
+    rootOrgId?: string
+    rootOrgName?: string
+    profileImage?: string
     givenName?: string
     country?: null | string
     unit?: string | null
