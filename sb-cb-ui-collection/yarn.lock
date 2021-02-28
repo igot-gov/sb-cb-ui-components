@@ -1366,21 +1366,21 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@ws-widget/design-system@^0.0.3":
+"@sunbird-cb/design-system@^0.0.3":
   version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@ws-widget/design-system/-/design-system-0.0.3.tgz#e1dccafa4decc32928d9083b91646dbb23977519"
+  resolved "https://registry.yarnpkg.com/@sunbird-cb/design-system/-/design-system-0.0.3.tgz#e1dccafa4decc32928d9083b91646dbb23977519"
   integrity sha512-f4C/owQkHOSt/OBIYxUlrV9rcaaE2hxrvmkf7uWOTNw7VQ9GcaShGhcFXZHCx9YaJFPUxXrD2dFfT7UzliYoRg==
 
-"@ws-widget/resolver@^0.0.2":
+"@sunbird-cb/resolver@^0.0.2":
   version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@ws-widget/resolver/-/resolver-0.0.2.tgz#a0ccfe1bc5de85cede500a6d52b2439103c0a906"
+  resolved "https://registry.yarnpkg.com/@sunbird-cb/resolver/-/resolver-0.0.2.tgz#a0ccfe1bc5de85cede500a6d52b2439103c0a906"
   integrity sha512-MHQ5h191FNllNL7cB9LUdHR1o/UHV01sLO0+GQcx4EcPuCTHhz3de+5KbiyzL+WanbBNbs+4mXOdjxEGSlA5tQ==
   dependencies:
     tslib "^1.9.0"
 
-"@ws-widget/utils@^0.0.4":
+"@sunbird-cb/utils@^0.0.4":
   version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@ws-widget/utils/-/utils-0.0.4.tgz#2701ee0bf15fd71a4eb27ce639cf6413218bcda4"
+  resolved "https://registry.yarnpkg.com/@sunbird-cb/utils/-/utils-0.0.4.tgz#2701ee0bf15fd71a4eb27ce639cf6413218bcda4"
   integrity sha512-j7Hx8rHAAVf2OXBZTVTwSY4hgWrXST+DJG8H7IvktK1XXszd7olIEzajiTxL7gsKwMC44A3zWgtKViky4ciN3A==
   dependencies:
     "@types/lodash" "^4.14.168"
