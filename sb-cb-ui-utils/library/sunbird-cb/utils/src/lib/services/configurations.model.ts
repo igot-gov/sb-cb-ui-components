@@ -267,7 +267,6 @@ export namespace NsUser {
     }
   }
 
-
   export interface IUserPidProfileVer2 {
     result: {
       UserProfile: IUserVer2
