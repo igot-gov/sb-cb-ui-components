@@ -5,31 +5,31 @@
   "projects": {
     "@sunbird-cb/utils": {
       "projectType": "library",
-      "root": "library/ws-widget/utils",
-      "sourceRoot": "library/ws-widget/utils/src",
+      "root": "library/sunbird-cb/utils",
+      "sourceRoot": "library/sunbird-cb/utils/src",
       "prefix": "ws-utils",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "library/ws-widget/utils/tsconfig.lib.json",
-            "project": "library/ws-widget/utils/ng-package.json"
+            "tsConfig": "library/sunbird-cb/utils/tsconfig.lib.json",
+            "project": "library/sunbird-cb/utils/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "library/ws-widget/utils/src/test.ts",
-            "tsConfig": "library/ws-widget/utils/tsconfig.spec.json",
-            "karmaConfig": "library/ws-widget/utils/karma.conf.js"
+            "main": "library/sunbird-cb/utils/src/test.ts",
+            "tsConfig": "library/sunbird-cb/utils/tsconfig.spec.json",
+            "karmaConfig": "library/sunbird-cb/utils/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "library/ws-widget/utils/tsconfig.lib.json",
-              "library/ws-widget/utils/tsconfig.spec.json"
+              "library/sunbird-cb/utils/tsconfig.lib.json",
+              "library/sunbird-cb/utils/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

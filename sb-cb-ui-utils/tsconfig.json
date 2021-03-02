@@ -20,8 +20,8 @@
     "noUnusedParameters": true,
     "outDir": "./dist/out-tsc",
     "paths": {
-      "@ws-widget/utils": ["library/ws-widget/utils"],
-      "@ws-widget/utils/*": ["library/ws-widget/utils/*"],
+      "@sunbird-cb/utils": ["library/sunbird-cb/utils"],
+      "@sunbird-cb/utils/*": ["library/sunbird-cb/utils/*"],
     },
     "removeComments": true,
     "sourceMap": true,

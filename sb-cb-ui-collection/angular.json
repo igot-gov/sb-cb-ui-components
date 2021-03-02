@@ -3,33 +3,33 @@
   "version": 1,
   "newProjectRoot": "project",
   "projects": {
-    "@ws-widget/collection": {
+    "@sunbird-cb/collection": {
       "projectType": "library",
-      "root": "library/ws-widget/collection",
-      "sourceRoot": "library/ws-widget/collection/src",
-      "prefix": "ws-widget",
+      "root": "library/sunbird-cb/collection",
+      "sourceRoot": "library/sunbird-cb/collection/src",
+      "prefix": "sunbird-cb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "library/ws-widget/collection/tsconfig.lib.json",
-            "project": "library/ws-widget/collection/ng-package.json"
+            "tsConfig": "library/sunbird-cb/collection/tsconfig.lib.json",
+            "project": "library/sunbird-cb/collection/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "library/ws-widget/collection/src/test.ts",
-            "tsConfig": "library/ws-widget/collection/tsconfig.spec.json",
-            "karmaConfig": "library/ws-widget/collection/karma.conf.js"
+            "main": "library/sunbird-cb/collection/src/test.ts",
+            "tsConfig": "library/sunbird-cb/collection/tsconfig.spec.json",
+            "karmaConfig": "library/sunbird-cb/collection/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "library/ws-widget/collection/tsconfig.lib.json",
-              "library/ws-widget/collection/tsconfig.spec.json"
+              "library/sunbird-cb/collection/tsconfig.lib.json",
+              "library/sunbird-cb/collection/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -39,10 +39,13 @@
       }
     }
   },
-  "defaultProject": "@ws-widget/collection",
+  "defaultProject": "@sunbird-cb/collection",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"
     }
+  },
+  "cli": {
+    "analytics": "90ed193f-68b3-414f-8e2d-5810c7b9bba8"
   }
 }

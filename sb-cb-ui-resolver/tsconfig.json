@@ -20,8 +20,8 @@
     "noUnusedParameters": true,
     "outDir": "./dist/out-tsc",
     "paths": {
-      "@ws-widget/resolver": ["library/ws-widget/resolver"],
-      "@ws-widget/resolver/*": ["library/ws-widget/resolver/*"],
+      "@sunbird-cb/resolver": ["library/sunbird-cb/resolver"],
+      "@sunbird-cb/resolver/*": ["library/sunbird-cb/resolver/*"],
     },
     "removeComments": true,
     "sourceMap": true,
