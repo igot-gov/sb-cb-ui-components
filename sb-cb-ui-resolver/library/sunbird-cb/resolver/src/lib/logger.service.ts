@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core'
 import { ConfigurationsService } from '@sunbird-cb/utils'
 
-
 type consoleFun = (...args: any) => void
 @Injectable({
   providedIn: 'root',

@@ -24,7 +24,7 @@
     "@angular/platform-browser": "~8.2.1",
     "@angular/platform-browser-dynamic": "~8.2.1",
     "@angular/router": "~8.2.1",
-    "@sunbird-cb/utils": "^0.0.3",
+    "@sunbird-cb/utils": "^0.0.6",
     "@types/lodash": "^4.14.168",
     "keycloak-angular": "^6.1.0",
     "moment": "^2.29.1",
