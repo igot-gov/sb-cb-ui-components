@@ -164,7 +164,6 @@ export * from './lib/_services/widget-search.model'
 export * from './lib/graph-general/graph-general.service'
 // export * from './lib/content-quality-check/content-quality-check.module'
 
-
 export * from './lib/left-menu/left-menu.model'
 export * from './lib/left-menu/left-menu.module'
 export * from './lib/left-menu-without-logo/left-menu-without-logo.module'

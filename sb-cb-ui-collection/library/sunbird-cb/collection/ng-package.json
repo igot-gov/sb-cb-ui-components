@@ -11,7 +11,8 @@
       "mustache": "mustache",
       "chart.js": "chart.js",
       "video.js": "video.js",
-      "pdfjs-dist/webpack": "pdfjs-dist/webpack"
+      "pdfjs-dist/webpack": "pdfjs-dist/webpack",
+      "lodash":"lodash"
     }
   }
 }
