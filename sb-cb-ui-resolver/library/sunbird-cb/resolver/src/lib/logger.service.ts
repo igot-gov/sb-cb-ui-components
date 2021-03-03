@@ -1,6 +1,6 @@
 // tslint:disable:no-console
 import { Injectable } from '@angular/core'
-import { ConfigurationsService } from './configurations.service'
+import { ConfigurationsService } from '@sunbird-cb/utils'
 
 type consoleFun = (...args: any) => void
 @Injectable({
