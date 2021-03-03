@@ -17,7 +17,13 @@ const locationHost: string | null = window.location.host
 })
 export class ConfigurationsService {
   // update as the single source of truth
-
+  constructor() {
+    // @Inject('env') env: any
+    // if (!env.production && Boolean(env.sitePath)) {
+    //   locationHost = env.sitePath
+    //   instanceConfigPath = env.sitePath
+    // }
+  }
   appSetup = true
   // The url the user tried to access while landing in the app before accepting tnc
   userUrl = ''
@@ -76,4 +82,11 @@ export class ConfigurationsService {
     color: 'primary',
   }
   primaryNavBarConfig: NsInstanceConfig.IPrimaryNavbarConfig | null = null
+  /* for temp Fix */
+  setBaseUrl = (sitePath: string) => `assets/configurations/${(sitePath).replace(':', '_')}`
+  setSitePath = (sitePath: string) => `assets/configurations/${(sitePath).replace(
+    ':',
+    '_',
+  )}`
+  setHostPath = (sitePath: string) => (sitePath).replace(':', '_')
 }
