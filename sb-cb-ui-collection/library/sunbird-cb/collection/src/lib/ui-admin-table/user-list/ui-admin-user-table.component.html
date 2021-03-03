@@ -48,13 +48,13 @@
                     <span *ngIf="!col.isList" class="textclass mat-body-2">
                         {{element[col.key]}} {{col.isList}}
                     </span>
-                </mat-cell>
+                </mat-cell> 
             </ng-container>
 
             <ng-container matColumnDef="Actions" *ngIf="tableData!.actions && tableData!.actions.length > 0">
                 <mat-header-cell *matHeaderCellDef class="clr-darkish-blue action-header"> Actions </mat-header-cell>
                 <mat-cell *matCellDef="let row" class="action-cell">
-                    <div *ngFor="let ac of tableData.actions">
+                    <div *ngFor="let ac of tableData!.actions">
                         <div *ngIf="ac.optional">
                             <ws-widget-app-button *ngIf="row[ac.optional_key] === ac.optional_Value" [type]="ac.type"
                                 [icon]="ac.icon" [disabled]="ac.disabled || false" [label]="ac.label"
