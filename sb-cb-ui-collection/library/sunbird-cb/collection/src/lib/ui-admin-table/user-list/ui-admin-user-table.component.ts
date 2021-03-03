@@ -15,8 +15,8 @@ import { CreateMDOService } from '../create-mdo.services'
 
 @Component({
   selector: 'ws-widget-ui-user-table',
-  templateUrl: './ui-user-table.component.html',
-  styleUrls: ['./ui-user-table.component.scss'],
+  templateUrl: './ui-admin-user-table.component.html',
+  styleUrls: ['./ui-admin-user-table.component.scss'],
 })
 export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() tableData!: ITableData | undefined
