@@ -152,6 +152,7 @@ import { CardCarrierHomeModule } from './card-carrier-home/card-carrier-home.mod
 import { CardActivityComponent } from './card-activity/card-activity.component'
 import { CardActivityModule } from './card-activity/card-activity.module'
 // import { ContentQualityCheckModule } from './content-quality-check/content-quality-check.module'
+import { UIAdminTableModule } from './ui-admin-table/ui-admin-table.module'
 
 export const WIDGET_REGISTERED_MODULES = [
   AvatarPhotoModule,
@@ -231,6 +232,7 @@ export const WIDGET_REGISTERED_MODULES = [
   // DiscussStripMultipleModule,
   CardActivityModule,
   // ActivityStripMultipleModule,
+  UIAdminTableModule,
 ]
 
 export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] = [
