@@ -103,10 +103,10 @@ function eventDispatchHelper(
       },
       to: '',
       data: {
-        identifier: data.identifier,
+        id: data.identifier,
         eventSubType: WsEvents.EnumTelemetrySubType.HeartBeat,
-        mimeType: mimeT,
-        mode: WsEvents.WsTimeSpentMode.Play,
+        // mimeType: mimeT,
+        // mode: WsEvents.WsTimeSpentMode.Play,
         type: WsEvents.WsTimeSpentType.Player,
       },
     }

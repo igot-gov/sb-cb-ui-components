@@ -50,10 +50,10 @@ export class TelemetryService {
   start(type: string, mode: string, id: string) {
     if (this.telemetryConfig) {
       $t.start(this.telemetryConfig, id, '1.0', {
-        id,
+        // id,
         type,
         mode,
-        stageid: '',
+        pageid: id,
       })
     } else {
       this.logger.error('Error Initializing Telemetry. Config missing.')
@@ -65,7 +65,7 @@ export class TelemetryService {
       {
         type,
         mode,
-        contentId: id,
+        pageid: id,
       },
       {
         context: {
@@ -83,7 +83,10 @@ export class TelemetryService {
       {
         type,
         props,
-        data,
+        // data,
+        state: data, // Optional. Current State
+        prevstate: '', // Optional. Previous State
+        duration: '', // Optional.
       },
       {
         context: {
@@ -96,16 +99,21 @@ export class TelemetryService {
     )
   }
 
-  heartbeat(type: string, mode: string, id: string) {
+  heartbeat(type: string, id: string) {
     $t.heartbeat({
       id,
-      mode,
+      // mode,
       type,
     })
   }
 
   impression() {
     const page = this.getPageDetails()
+    const edata = {
+      pageid: page.pageid, // Required. Unique page id
+      type: page.pageUrlParts[0], // Required. Impression type (list, detail, view, edit, workflow, search)
+      uri: page.pageUrl,
+    }
     if (page.objectId) {
       const config = {
         context: {
@@ -118,9 +126,9 @@ export class TelemetryService {
           id: page.objectId,
         },
       }
-      $t.impression(page, config)
+      $t.impression(edata, config)
     } else {
-      $t.impression(page, {
+      $t.impression(edata, {
         context: {
           pdata: {
             ...this.pData,
@@ -209,7 +217,7 @@ export class TelemetryService {
           this.start(
             event.data.type || WsEvents.WsTimeSpentType.Player,
             event.data.mode || WsEvents.WsTimeSpentMode.Play,
-            event.data.identifier,
+            event.data.id,
           )
         }
         if (
@@ -221,7 +229,7 @@ export class TelemetryService {
           this.end(
             event.data.type || WsEvents.WsTimeSpentType.Player,
             event.data.mode || WsEvents.WsTimeSpentMode.Play,
-            event.data.identifier,
+            event.data.id,
           )
         }
       })
@@ -251,13 +259,18 @@ export class TelemetryService {
           }
           $t.interact(event.data, externalConfig)
         } else {
+          let interactid
+          if (event.data.type === 'goal') {
+            interactid = page.pageUrlParts[4]
+          }
           $t.interact(
             {
               type: event.data.type,
               subtype: event.data.subType,
-              object: event.data.object,
+              // object: event.data.object,
+              id: event.data.object.contentId || interactid || '',
               pageid: page.pageid,
-              target: { page },
+              // target: { page },
             },
             {
               context: {
@@ -296,10 +309,10 @@ export class TelemetryService {
           $t.heartbeat(
             {
               type: event.data.type,
-              subtype: event.data.eventSubType,
-              identifier: event.data.identifier,
-              mimeType: event.data.mimeType,
-              mode: event.data.mode,
+              // subtype: event.data.eventSubType,
+              id: event.data.id,
+              // mimeType: event.data.mimeType,
+              // mode: event.data.mode,
             },
             {
               context: {
