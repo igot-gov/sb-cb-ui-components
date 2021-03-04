@@ -158,7 +158,6 @@ import { LeftMenuModule } from './left-menu/left-menu.module'
 import { LeftMenuComponent } from './left-menu/left-menu.component'
 import { UIORGTableModule } from './ui-org-table/ui-org-table.module'
 
-
 export const WIDGET_REGISTERED_MODULES = [
   AvatarPhotoModule,
   BtnAppsModule,

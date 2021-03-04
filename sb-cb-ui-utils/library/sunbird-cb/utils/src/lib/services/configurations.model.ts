@@ -267,10 +267,6 @@ export namespace NsUser {
     }
   }
 
-<<<<<<< HEAD:sb-cb-ui-utils/library/ws-widget/utils/src/lib/services/configurations.model.ts
-
-=======
->>>>>>> a8b03f7a27d154cf2a0b3f7495169a5057d5270c:sb-cb-ui-utils/library/sunbird-cb/utils/src/lib/services/configurations.model.ts
   export interface IUserPidProfileVer2 {
     result: {
       UserProfile: IUserVer2
