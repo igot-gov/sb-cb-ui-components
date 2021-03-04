@@ -14,6 +14,7 @@ export const VIEWER_ROUTE_FROM_MIME = (mimeType: NsContent.EMimeTypes) => {
     case NsContent.EMimeTypes.CERTIFICATION:
       return 'certification'
     case NsContent.EMimeTypes.HTML:
+    case NsContent.EMimeTypes.HTML_TEXT:
       return 'html'
     case NsContent.EMimeTypes.IAP:
       return 'iap'
@@ -43,7 +44,7 @@ export const VIEWER_ROUTE_FROM_MIME = (mimeType: NsContent.EMimeTypes) => {
     case NsContent.EMimeTypes.COLLECTION_RESOURCE:
       return 'resource-collection'
     default:
-      return ''
+      return 'html'
   }
 }
 
@@ -53,6 +54,8 @@ export function viewerRouteGenerator(
   collectionId?: string,
   collectionType?: string,
   forPreview = false,
+  primaryCategory?: string,
+  batchId?: string,
 ): { url: string; queryParams: { [key: string]: any } } {
   let collId = collectionId
   let collType = collectionType
@@ -62,8 +65,16 @@ export function viewerRouteGenerator(
   }
   const url = `${forPreview ? '/author' : ''}/viewer/${VIEWER_ROUTE_FROM_MIME(mimeType)}/${id}`
   let queryParams = {}
+  if (primaryCategory) {
+    queryParams = {
+      primaryCategory,
+    }
+  }
   if (collectionId && collectionType) {
-    queryParams = { collectionId: collId, collectionType: collType }
+    queryParams = { ...queryParams, collectionId: collId, collectionType: collType }
+  }
+  if (batchId) {
+    queryParams = { ...queryParams, batchId }
   }
   return {
     queryParams,

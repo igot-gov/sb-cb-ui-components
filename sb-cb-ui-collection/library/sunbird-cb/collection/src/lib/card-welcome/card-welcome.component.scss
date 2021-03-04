@@ -1,5 +1,5 @@
-// @import 'ws-mixins';
-// @import 'ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 .user-image {
   $icon-size: 36px;
@@ -41,10 +41,10 @@ mat-expansion-panel-header {
   margin-bottom: 1.5rem !important;
   padding-right: 24px !important;
 
-  // @include breakpoint-lt-m {
-  //   margin-top: 0.5rem !important;
-  //   margin-bottom: 1.5rem !important;
-  // }
+  @include breakpoint-lt-m {
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
 
 }
 
@@ -65,21 +65,21 @@ mat-expansion-panel-body {
 .btn-display-top {
   margin-top: 0.25rem !important;
 
-  // @include breakpoint-lt-m {
-  //   display: none;
-  // }
+  @include breakpoint-lt-m {
+    display: none;
+  }
 }
 
 .btn-display-bottom {
   margin-top: 0.25rem !important;
 
-  // @include breakpoint-gt-m {
-  //   display: none
-  // }
+  @include breakpoint-gt-m {
+    display: none
+  }
 
-  // @include breakpoint-m {
-  //   display: none;
+  @include breakpoint-m {
+    display: none;
 
-  // }
+  }
 
 }

@@ -1,5 +1,6 @@
-// @import 'ws-vars';
-// @import 'ws-mixins';
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 .activity-card {
   min-width: 240px !important;
@@ -33,12 +34,12 @@
   margin-bottom: 1rem;
   display: inline-block;
 
-  // @include breakpoint-xs {
-  //   margin: auto;
-  //   margin-top: 1rem;
-  //   margin-bottom: 1rem;
+  @include breakpoint-xs {
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
-  // }
+  }
 
 }
 

@@ -126,6 +126,9 @@ export class DiscussionForumComponent extends WidgetBaseComponent
       },
     )
   }
+  get isDisabled() {
+    return this.discussionFetchStatus === 'fetching'
+  }
 
   publishConversation(failMsg: string) {
     this.isPostingDiscussion = true

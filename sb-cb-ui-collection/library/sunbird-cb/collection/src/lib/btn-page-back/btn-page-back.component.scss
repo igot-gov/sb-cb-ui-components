@@ -1,12 +1,13 @@
-// @import 'ws-common';
-// @import 'ws-vars';
-// @import 'ws-mixins';
-$max-screen: 1202px;
-$size-s: 12px;
-$size-m: 16px;
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
+
+// $max-screen: 1202px;
+// $size-s: 12px;
+// $size-m: 16px;
 
 %page-center {
-  // max-width: $page-center;
+  max-width: $page-center;
   max-width: $max-screen;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -73,9 +74,9 @@ $size-m: 16px;
   margin: auto 20px auto 20px;
 }
 
-// .main-back {
-//   font-size: $size-xl;
-// }
+.main-back {
+  font-size: $size-xl;
+}
 
 /** No CSS for this example */
 .mat-y-icon {

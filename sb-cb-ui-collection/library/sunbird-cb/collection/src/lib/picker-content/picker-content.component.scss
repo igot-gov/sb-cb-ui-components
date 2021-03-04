@@ -1,6 +1,6 @@
-// @import 'ws-common';
-// @import 'ws-vars';
-$size-xs: 8px;
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 .btn-filter {
   padding-bottom: 1.34375em;
@@ -27,13 +27,13 @@ $size-xs: 8px;
   flex-wrap: wrap;
   word-break: break-all;
 
-  // @include breakpoint-xs {
-  //   flex-direction: column-reverse;
-  // }
+  @include breakpoint-xs {
+    flex-direction: column-reverse;
+  }
 }
 
-// .custom {
-//   @include breakpoint-xs {
-//     max-width: 224px;
-//   }
-// }
+.custom {
+  @include breakpoint-xs {
+    max-width: 224px;
+  }
+}

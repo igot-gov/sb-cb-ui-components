@@ -35,18 +35,10 @@
       <mat-spinner class="display-inline-block" [strokeWidth]="5"></mat-spinner>
     </div>
     <div class="text-center margin-top-s" *ngIf="discussionFetchStatus === 'hasMore'">
-      <!-- <button
-        name="discussion-forum-show-more-posts-button"
-        mat-stroked-button
-        [color]="'primary'"
-        [disabled]="discussionFetchStatus === 'fetching'"
-        class="width-1-1"
-        type="button"
-        i18n
-        (click)="fetchDiscussion()"
-      >
+      <button name="discussion-forum-show-more-posts-button" mat-stroked-button [color]="'primary'"
+        [disabled]="isDisabled" class="width-1-1" type="button" i18n (click)="fetchDiscussion()">
         Show More Posts
-      </button> -->
+      </button>
     </div>
   </div>
 

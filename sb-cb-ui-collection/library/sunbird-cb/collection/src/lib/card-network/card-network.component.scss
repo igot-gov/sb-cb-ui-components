@@ -1,9 +1,4 @@
-// @import 'ws-vars';
-$size-xs: 8px;
-$size-s: 12px;
-$size-m: 16px;
-$size-l: 24px;
-$size-xl: 32px;
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
 
 .base-header {
   margin-left: 5px;

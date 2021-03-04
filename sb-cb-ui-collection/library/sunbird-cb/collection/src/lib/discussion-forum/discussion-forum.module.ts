@@ -18,7 +18,7 @@ import {
 } from '@angular/material'
 import { EditorQuillModule } from './editor-quill/editor-quill.module'
 import { UserImageModule } from '../_common/user-image/user-image.module'
-// import { BtnSocialVoteModule } from './actionBtn/btn-social-vote/btn-social-vote.module'
+import { BtnSocialVoteModule } from './actionBtn/btn-social-vote/btn-social-vote.module'
 import { BtnSocialLikeModule } from './actionBtn/btn-social-like/btn-social-like.module'
 import { DialogSocialActivityUserModule } from './dialog/dialog-social-activity-user/dialog-social-activity-user.module'
 import { DialogSocialDeletePostModule } from './dialog/dialog-social-delete-post/dialog-social-delete-post.module'
@@ -38,7 +38,7 @@ import { DialogSocialDeletePostModule } from './dialog/dialog-social-delete-post
     MatCardModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
-    // BtnSocialVoteModule,
+    BtnSocialVoteModule,
     BtnSocialLikeModule,
     EditorQuillModule,
     UserImageModule,
