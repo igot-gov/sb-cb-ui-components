@@ -9,27 +9,21 @@ import { MatSort } from '@angular/material/sort'
 import * as _ from 'lodash'
 
 import { ITableData, IColums } from '../interface/interfaces'
+import { Router } from '@angular/router'
 
 @Component({
-  selector: 'ws-widget-ui-user-table',
-  templateUrl: './ui-user-table.component.html',
-  styleUrls: ['./ui-user-table.component.scss'],
+  selector: 'ws-widget-directory-table',
+  templateUrl: './directory-table.component.html',
+  styleUrls: ['./directory-table.component.scss'],
 })
-export class UIUserTableComponent implements OnInit, AfterViewInit, OnChanges {
+export class UIDirectoryTableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() tableData!: ITableData | undefined
   @Input() data?: []
-  @Input() isUpload?: boolean
-  @Input() isCreate?: boolean
-
-  // @Input() columns?: IColums[]
-  // @Input() needCheckBox?: Boolean
-  // @Input() needHash?: boolean
-  // @Input() actions: IAction[]
+  @Input() selectedDepartment!: string
+  @Input() departmentID!: string
   @Output() clicked?: EventEmitter<any>
   @Output() actionsClick?: EventEmitter<any>
   @Output() eOnRowClick = new EventEmitter<any>()
-  @Output() eOnCreateClick = new EventEmitter<any>()
-
   bodyHeight = document.body.clientHeight - 125
   displayedColumns: IColums[] | undefined
   dataSource!: any
@@ -38,37 +32,34 @@ export class UIUserTableComponent implements OnInit, AfterViewInit, OnChanges {
   pageSize = 5
   pageSizeOptions = [5, 10, 20]
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator
-  @ViewChild(MatSort, { static: false }) set matSort(sort: MatSort) {
-    if (!this.dataSource.sort) {
-      this.dataSource.sort = sort
-    }
-  }
+  @ViewChild(MatSort, { static: true }) sort?: MatSort
   selection = new SelectionModel<any>(true, [])
 
-  constructor() {
+  constructor(
+    private router: Router) {
     this.dataSource = new MatTableDataSource<any>()
     this.actionsClick = new EventEmitter()
     this.clicked = new EventEmitter()
-    this.dataSource.paginator = this.paginator
+
   }
 
   ngOnInit() {
+
     if (this.tableData) {
       this.displayedColumns = this.tableData.columns
     }
-    if (this.data) {
-      this.dataSource.data = this.data
-      this.dataSource.paginator = this.paginator
-      // this.dataSource.sort = this.sort
-    }
+    this.dataSource.data = this.data
+    this.dataSource.paginator = this.paginator
+    this.dataSource.sort = this.sort
+
   }
 
   ngOnChanges(data: SimpleChanges) {
+    // this.tableData!.columns = data.tableData.currentValue.columns
     this.dataSource.data = _.get(data, 'data.currentValue')
     this.length = this.dataSource.data.length
     this.paginator.firstPage()
   }
-
   ngAfterViewInit() { }
 
   applyFilter(filterValue: any) {
@@ -100,11 +91,11 @@ export class UIUserTableComponent implements OnInit, AfterViewInit, OnChanges {
       if (this.tableData.needHash) {
         columns.splice(0, 0, 'SR')
       }
-      // if (this.tableData.actions && this.tableData.actions.length > 0) {
-      //   columns.push('Actions')
-      // }
-      if (this.tableData.needUserMenus) {
-        columns.push('Menu')
+      if (this.tableData.actions && this.tableData.actions.length > 0) {
+        columns.push('Actions')
+      }
+      if (this.tableData.actions && this.tableData.actions.length > 0) {
+        // columns.push('Menu')
       }
       return columns
     }
@@ -140,9 +131,7 @@ export class UIUserTableComponent implements OnInit, AfterViewInit, OnChanges {
   onRowClick(e: any) {
     this.eOnRowClick.emit(e)
   }
-
-  onCreateClick() {
-    this.eOnCreateClick.emit()
+  gotoCreateNew() {
+    this.router.navigate([`/app/home/${this.selectedDepartment}/create-department`, { needAddAdmin: true }])
   }
-
 }

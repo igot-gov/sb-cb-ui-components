@@ -1,6 +1,19 @@
-@import "~@sunbird-cb/design-system/src/styles/_ws-vars.scss";
-@import "~@sunbird-cb/design-system/src/styles/_ws-mixins.scss";
-
+// @import 'ws-vars';
+// @import 'ws-mixins';
+// @import 'ws-vars';
+// @import 'ws-mixins';
+$size-xs: 8px;
+$size-s: 12px;
+$size-m: 16px;
+$size-l: 24px;
+$size-xl: 32px;
+$size-xxl: 40px;
+$card-standard-width: 268px;
+@mixin breakpoint-xs {
+  @media only screen and (max-width: 599px) {
+    @content;
+  }
+}
 .card-minimal-container {
   position: relative;
 
@@ -607,8 +620,9 @@ $title-line-count: 2;
 
 .textclass {
   word-break: break-word;
-  margin: 5px;
+  // margin: 5px;
   cursor: pointer;
+  // word-break: break-all;
 }
 
 .search {
@@ -623,19 +637,33 @@ $title-line-count: 2;
 
 .rsearch {
   display: flex;
-  position: relative;
   flex: 1 1 auto;
+}
+.no-information-found{
+  text-align: center;
+  padding: 10px;
 }
 
 .sinput {
-  width: 29%;
+  width: 24%;
   border-radius: 4px;
   border: 1px solid #d5d0d0;
-  padding: 9px 9px 9px 35px;
-  margin-bottom: 20px;
-  margin-top: 0;
-  font: normal 14px Lato ;
-  font-weight: 400 ;
+  padding: 4px 8px 8px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  min-height: 20px;
+
+  .material-icons {
+    vertical-align: bottom;
+    font-size: 20px;
+    margin-right: 7px;
+  }
+
+  input {
+    border: 0 !important;
+    width: 84%;
+    outline: none !important;
+  }
 }
 
 .searchText {
@@ -649,86 +677,11 @@ $title-line-count: 2;
   background: transparent;
 }
 
-mat-header-row{
+.mat-header-row{
   min-height: 40px;
 }
 
 .mat-header-cell{
   background-color: #F5F5F5;
-}
-
-.container-balanced{
-  max-width: 99%;
-  margin-left: auto!important;
-  margin-right: auto!important;
-}
-
-.flex-3 {
-  flex: 3;
-}
-
-.flex-1 {
-  flex: 1;
-}
-
-.flex-2 {
-  flex: 2;
-}
-
-.flex-4 {
-  flex: 4;
-}
-
-.flex-update {
-  flex-direction: row;
-
-  @include breakpoint-xs {
-    flex-direction: row;
-  }
-
-  @include breakpoint-s {
-    flex-direction: row;
-  }
-}
-
-.flex-custom {
-  display: flex;
- flex-direction: column;
-}
-
-.flex-custom-m {
-  @include breakpoint-xs {
-    flex-direction: column;
-  }
-}
-
-.right-align{
-  text-align: right;
-}
-
-.create-btn{
-  width: 107px;
-  background: #0075B7 !important;
-  color: white !important;
-  font-family: 'Lato';
-  font-weight: 700;
   font-size: 14px;
-}
-
-.upload-btn{
-  width: 150px;
-  border:1px solid #DEDEDE;
-  border-radius: 4px;
-  margin: 0 12px;
-  color: #848484 !important;
-  font-family: 'Lato';
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.search-icon{
-  position: absolute;
-  top: 9px;
-  font-size: 20px;
-  left: 10px;
 }

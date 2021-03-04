@@ -1,51 +1,60 @@
-<div class="example-container margin-top-m">
-    <div class="example-loading-shade"></div>
+<div class="example-container">
+    <div class="example-loading-shade">
 
+    </div>
+    <!-- <div>{{JSON.stringfy(dataSource)}}</div> -->
     <div class="example-table-container">
-        <div class="container-balanced">
-            <div class="flex flex-1 custom">
-                <div class="flex-3">
-                    <div class="search">
-                        <div class=rsearch>
-                            <mat-icon class="color-60 search-icon">search</mat-icon>
-                            <input class="sinput color-60" type="Standard" label=""
-                                (input)="applyFilter($event.target.value)" placeholder="Search">
-                        </div>
+
+        <div class="search">
+            <!-- <div class="lsearch">
+                <span class="searchText">Search:</span>
+            </div> -->
+            <div class=rsearch>
+                <div *ngIf="dataSource.data.length > 0">
+                    <div class="sinput">
+                        <span class="material-icons"> search </span>
+                        <input type="Standard" label="" (input)="applyFilter($event.target.value)" placeholder="Search">
                     </div>
                 </div>
-                <div class="flex-1 right-align">
-                    <button type="button" mat-button class="upload-btn" *ngIf="isUpload">
-                        <mat-icon>vertical_align_top</mat-icon> Bulk upload
-                    </button>
-                    <button type="button" mat-button class="create-btn" *ngIf="isCreate" (click)="onCreateClick()">
-                        Create new
-                    </button>
-                </div>
             </div>
+            <!-- <button mat-raised-button type="button" *ngIf="dataSource.data.length > 0 && needCreateUser"
+                    class="text-white ws-mat-primary-background text-white margin-right-m custom-btn"
+                    (click)="gotoCreateUser()"> -->
+            <button mat-raised-button type="button" *ngIf="needCreateUser"
+                class="text-white ws-mat-primary-background text-white margin-right-l custom-btn"
+                (click)="gotoCreateUser()">
+                <b class="text-white" i18n>Create User</b>
+            </button>
+            <button mat-raised-button type="button" *ngIf="needAddAdmin"
+                class="text-white ws-mat-primary-background text-white margin-right-m custom-btn" (click)="openPopup()">
+                <b class="text-white" i18n>Add Admin</b>
+            </button>
         </div>
 
+
         <!-- </mat-form-field> -->
+
         <mat-table #table matSort [ngStyle]="{'height': bodyHeight}" [matSortActive]="tableData!.sortColumn"
-            [matSortDirection]="tableData!.sortState" [dataSource]="dataSource"
-            class="example-table table1 responsiveTable" *ngIf="dataSource.filteredData.length > 0">
+            [matSortDirection]="tableData!.sortState" [dataSource]="dataSource" *ngIf="dataSource.data.length > 0"
+            class=" example-table table1 responsiveTable">
 
             <ng-container matColumnDef="{{col.key}}" *ngFor="let col of tableData!.columns">
-                <mat-header-cell *matHeaderCellDef mat-sort-header class=".h-400-r-14-l color-60"> {{col.displayName}}
-                </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{col.displayName}} </mat-header-cell>
                 <mat-cell *matCellDef="let element" (click)="onRowClick(element)">
-                    <span *ngIf="col.isList" class="h-400-r-14-l color-87 textclass">
+                    <span *ngIf="col.isList" class="textclass"
+                        [matTooltip]="(element[col.key]).split('<br />').join(', ')">
                         <div innerHTML="{{element[col.key]}}"></div>
                     </span>
-                    <span *ngIf="!col.isList" class="h-400-r-14-l color-87 textclass">
+                    <span *ngIf="!col.isList" class="textclass mat-body-2">
                         {{element[col.key]}} {{col.isList}}
                     </span>
-                </mat-cell>
+                </mat-cell> 
             </ng-container>
+
             <ng-container matColumnDef="Actions" *ngIf="tableData!.actions && tableData!.actions.length > 0">
-                <mat-header-cell *matHeaderCellDef class="clr-darkish-blue action-header"> Actions
-                </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef class="clr-darkish-blue action-header"> Actions </mat-header-cell>
                 <mat-cell *matCellDef="let row" class="action-cell">
-                    <div *ngFor="let ac of tableData?.actions">
+                    <div *ngFor="let ac of tableData!.actions">
                         <div *ngIf="ac.optional">
                             <ws-widget-app-button *ngIf="row[ac.optional_key] === ac.optional_Value" [type]="ac.type"
                                 [icon]="ac.icon" [disabled]="ac.disabled || false" [label]="ac.label"
@@ -72,23 +81,13 @@
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="getFinalColumns()"></mat-header-row>
-
-            <mat-row *matRowDef="let row; columns: getFinalColumns();" (click)="selection.toggle(row);">
+            <mat-row *matRowDef="let row; columns: getFinalColumns();" (click)="selection.toggle(row); onRowClick(row)">
             </mat-row>
-
-            <!-- <div *ngIf="dataSource.filteredData.length <= 0">
-                <mat-row *matRowDef="let row; columns: getFinalColumns();"
-                    (click)="selection.toggle(row); onRowClick(row)">
-                    ssss
-                </mat-row>
-            </div> -->
         </mat-table>
-        <mat-card class="flex-1" role="none" *ngIf="dataSource.filteredData.length == 0">
-            <span class="mat-subtitle">No data found</span>
-        </mat-card>
+        <div class="no-information-found" *ngIf="dataSource.filteredData.length===0">No User information found
+        </div>
     </div>
-    <!-- <div *ngIf="dataSource.filteredData.length <= 0" class="h-600-s-20-m color-60 text-center">No result found
-    </div> -->
+
     <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions">
     </mat-paginator>
 </div>
