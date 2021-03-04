@@ -6317,6 +6317,13 @@ ng-packagr@^5.4.3:
     terser "^4.1.2"
     update-notifier "^3.0.0"
 
+ng2-ckeditor@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/ng2-ckeditor/-/ng2-ckeditor-1.3.3.tgz#bd8c34fc4343bea1932862aae446cb92f8bfb32a"
+  integrity sha512-NFLHFiz11eOmtldGHZDh8lva1kMNf+i8X1927SF7n9LOJhxCypWArSyobFyXdv/bPOMQvlyEsEoBUBQvRiwF7Q==
+  dependencies:
+    tslib "^2.0.0"
+
 ngx-image-cropper@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/ngx-image-cropper/-/ngx-image-cropper-3.3.4.tgz#cd9dc63044e0b64e20086dd96bd8624c4cf18ec1"

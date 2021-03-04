@@ -28,6 +28,7 @@ const API_END_POINTS = {
     `/apis/protected/v8/user/goals/addContent/${goalId}/${contentId}?goal_type=${goalType}`,
   removeContentFromGoal: (goalId: string, contentId: string, goalType: string) =>
     `/apis/protected/v8/user/goals/removeContent/${goalId}/${contentId}?goal_type=${goalType}`,
+  getSearchData: `/apis/proxies/v8/sunbirdigot/search`,
 }
 
 @Injectable({
@@ -36,10 +37,14 @@ const API_END_POINTS = {
 export class BtnGoalsService {
   goalsHash: { [goalId: string]: NsGoal.IGoal } = {}
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   createGoal(upsertRequest: NsGoal.IGoalUpsertRequest) {
     return this.http.post<NsGoal.IGoalUpsertResponse>(API_END_POINTS.createGoal, upsertRequest)
+  }
+
+  updateGoal(id: any, upsertRequest: any) {
+    return this.http.patch<NsGoal.IGoalUpsertResponse>(`/apis/protected/v8/user/goals/${id}`, upsertRequest)
   }
 
   createGoals(upsertRequests: NsGoal.IGoalUpsertRequest[]) {
@@ -75,7 +80,31 @@ export class BtnGoalsService {
   }
 
   getUserGoals(type: NsGoal.EGoalTypes, sourceFields: string = '') {
-    return this.http.get<NsGoal.IUserGoals>(API_END_POINTS.getUserGoals(type, sourceFields))
+    return this.http.post<NsGoal.IUserGoals>(`/apis/proxies/v8/sunbirdigot/search?type=${type}&sourceFields=${sourceFields}`, {
+      request: {
+        filters: {
+          primaryCategory: 'Playlist',
+          visibility: 'Private',
+          status: ['Draft', 'Live'],
+
+        },
+        fields: [],
+        limit: 100,
+        facets: [
+
+        ],
+      },
+    })
+
+  }
+
+  getUserGoal(id: string) {
+    return this.http.get<NsGoal.IUserGoals>(`/apis/proxies/v8/action/content/v3/hierarchy/${id}?mode=edit`)
+  }
+
+  getGoalContent(id: string) {
+    return this.http.get<NsGoal.IGoalsGroup>(`/apis/proxies/v8/action/content/v3/hierarchy/${id}?mode=edit`)
+
   }
 
   getOthersGoals(sourceFields: string = '') {
@@ -84,7 +113,8 @@ export class BtnGoalsService {
         this.goalsHash = goals.reduce((hash: { [id: string]: NsGoal.IGoal }, obj: NsGoal.IGoal) => {
           hash[obj.id] = obj
           return hash
-        },                            {})
+          // tslint:disable-next-line: align
+        }, {})
       }),
     )
   }
