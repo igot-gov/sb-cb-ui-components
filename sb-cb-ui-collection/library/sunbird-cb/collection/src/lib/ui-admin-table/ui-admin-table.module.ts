@@ -7,7 +7,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatSortModule } from '@angular/material/sort'
 import { MatIconModule } from '@angular/material/icon'
-import { AppButtonComponent } from '../app-button/app-button.component'
+import { AppButtonModule } from '../app-button/app-button.module'
 import { MatMenuModule } from '@angular/material/menu'
 import { DefaultThumbnailModule, PipeCountTransformModule, PipeDurationTransformModule, PipeHtmlTagRemovalModule, PipePartialContentModule } from '@sunbird-cb/utils'
 import { BtnChannelAnalyticsModule } from '../btn-channel-analytics/btn-channel-analytics.module'
@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms'
 import { MatRadioModule } from '@angular/material/radio'
 import { BtnPageBackModule } from '../btn-page-back/btn-page-back.module'
 @NgModule({
-  declarations: [UIAdminUserTableComponent, AppButtonComponent, UIDirectoryTableComponent, UserPopupComponent, UIUserTablePopUpComponent],
+  declarations: [UIAdminUserTableComponent, UIDirectoryTableComponent, UserPopupComponent, UIUserTablePopUpComponent],
   imports: [
     CommonModule,
     MatTableModule,
@@ -42,7 +42,7 @@ import { BtnPageBackModule } from '../btn-page-back/btn-page-back.module'
     FormsModule,
     MatRadioModule,
     BtnPageBackModule,
-
+    AppButtonModule,
   ],
   entryComponents: [UserPopupComponent],
   exports: [UIAdminUserTableComponent, UIDirectoryTableComponent, UIUserTablePopUpComponent],
