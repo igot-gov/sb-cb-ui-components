@@ -1,12 +1,6 @@
-// @import 'ws-common';
-// @import 'ws-vars';
-// @import 'ws-mixins';
-$size-xs: 8px;
-$size-s: 12px;
-$size-m: 16px;
-$size-l: 24px;
-$size-xl: 32px;
-$size-xxl: 40px;
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 .comment-card {
   // width: 40%;
@@ -60,9 +54,9 @@ mat-card-actions {
 .mobile-margin {
   margin: 1rem 0;
 
-  // @include breakpoint-xs {
-  //   margin-top: $size-s;
-  // }
+  @include breakpoint-xs {
+    margin-top: $size-s;
+  }
 }
 
 .margin-f {
@@ -84,15 +78,15 @@ mat-card-actions {
   // border-radius: 20px 5px 5px 20px;
   border-radius: 4px;
 
-  // @include breakpoint-xs {
-  //   width: auto;
+  @include breakpoint-xs {
+    width: auto;
 
-  // }
+  }
 
-  // @include breakpoint-s {
-  //   width: auto;
+  @include breakpoint-s {
+    width: auto;
 
-  // }
+  }
 }
 
 .no-shadow {

@@ -3,6 +3,16 @@ export namespace NsContent {
     continueData: any
   }
 
+  export interface IContinueLearningDataReq {
+    request: {
+      userId: string | undefined,
+      courseId: string,
+      contentIds: string[],
+      batchId: string | undefined | null
+      fields?: string[]
+    }
+  }
+
   export interface IContent {
     platform?: any
     addedOn: string
@@ -59,7 +69,6 @@ export namespace NsContent {
     me_totalSessionsCount: number
     mediaType: string
     mimeType: EMimeTypes
-    minWingspanVersion?: string
     msArtifactDetails?: IMSArtifactDetails
     mode?: ETagType
     name: string
@@ -74,6 +83,7 @@ export namespace NsContent {
       currency: string
       value: number
     }
+    primaryCategory: string,
     proctorUrl?: string
     progress?: IMarkAsCompleteProgress
     publishedOn: string
@@ -124,6 +134,72 @@ export namespace NsContent {
     references?: { url: string; title: string }[]
     resumePage?: number // For player WebModule in UI
     [key: string]: any
+  }
+
+  export interface IContentResponse {
+    id: string,
+    params: any,
+    responseCode: string,
+    result: {
+      content: IContent
+    },
+    ts: string,
+    ver: string
+  }
+
+  export interface IBatch {
+    batchId: string,
+    createdBy: string,
+    endDate: string | null,
+    enrollmentType: string,
+    identifier: string,
+    name: string,
+    startDate: string,
+    status: number
+    cert_templates: null
+    collectionId: string
+    courseId: string
+    createdDate: string
+    createdFor: string[]
+    description: null
+    enrollmentEndDate: string | null
+    id: string
+    mentors: string[] | null
+    tandc: null
+    updatedDate: string | null
+  }
+
+  export interface IBatchListResponse {
+    content?: IBatch[]
+    count?: number,
+    enrolled?: boolean,
+  }
+
+  export interface ICourse {
+    active: true
+    addedBy: string
+    batch: IBatch
+    batchId: string
+    certificates: []
+    collectionId: string
+    completedOn: string | null
+    completionPercentage: number | null
+    content: IContent
+    contentId: string
+    contentStatus: any
+    courseId: string
+    courseLogoUrl: string
+    courseName: string
+    dateTime: number
+    description: string
+    enrolledDate: string
+    issuedCertificates: []
+    lastReadContentId: string | null
+    lastReadContentStatus: string | null
+    leafNodesCount: number
+    progress: number
+    status: number
+    userId: string
   }
 
   export interface IContentMinimal {
@@ -249,6 +325,11 @@ export namespace NsContent {
     MODULE = 'Collection',
     RESOURCE = 'Resource',
   }
+
+  export enum EResourcePrimaryCategories {
+    LEARNING_RESOURCE = 'Learning Resource',
+  }
+
   export enum EMiscPlayerSupportedCollectionTypes {
     PLAYLIST = 'Playlist',
   }
@@ -273,6 +354,7 @@ export namespace NsContent {
   export enum EMimeTypes {
     COLLECTION = 'application/vnd.ekstep.content-collection',
     HTML = 'application/html',
+    HTML_TEXT = 'text/html',
     ILP_FP = 'application/ilpfp',
     IAP = 'application/iap-assessment',
     M4A = 'audio/m4a',

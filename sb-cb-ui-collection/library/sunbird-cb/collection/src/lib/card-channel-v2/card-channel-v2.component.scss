@@ -15,10 +15,7 @@
 // .border-t-5 {
 //   border-top-width: 5px !important;
 // }
-
-// @import 'ws-vars';
-$size-s: 12px;
-$size-m: 16px;
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
 
 .card-minimal-container {
   position: relative;

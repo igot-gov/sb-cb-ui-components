@@ -10,9 +10,10 @@
       "moment": "moment",
       "mustache": "mustache",
       "chart.js": "chart.js",
+      "hammerjs": "hammerjs",
       "video.js": "video.js",
       "pdfjs-dist/webpack": "pdfjs-dist/webpack",
-      "lodash":"lodash"
+      "lodash": "lodash"
     }
   }
 }

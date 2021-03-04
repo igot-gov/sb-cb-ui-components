@@ -1,11 +1,6 @@
-// @import 'ws-common';
-// @import 'ws-vars';
-// @import 'ws-mixins';
-$size-xs: 8px;
-$size-s: 12px;
-$size-m: 16px;
-$size-l: 24px;
-$size-xl: 32px;
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 .discuss-card {
   // display: flex;
@@ -17,35 +12,35 @@ $size-xl: 32px;
   content: '•';
   margin: 1rem;
 
-  // @include breakpoint-xs {
-  //   margin: 0.65rem;
-  // }
+  @include breakpoint-xs {
+    margin: 0.65rem;
+  }
 }
 
-// .mobile {
-//   @include breakpoint-xs {
-//     flex: 1;
-//   }
+.mobile {
+  @include breakpoint-xs {
+    flex: 1;
+  }
 
-//   @include breakpoint-s {
-//     flex: 1;
-//   }
-// }
+  @include breakpoint-s {
+    flex: 1;
+  }
+}
 
 .responsive {
   display: flex;
   flex-direction: row;
 
-  // @include breakpoint-xs {
-  //   flex-direction: column;
-  // }
+  @include breakpoint-xs {
+    flex-direction: column;
+  }
 }
 
-// .mobile2 {
-//   @include breakpoint-xs {
-//     margin-top: $size-s;
-//   }
-// }
+.mobile2 {
+  @include breakpoint-xs {
+    margin-top: $size-s;
+  }
+}
 
 .tag {
   display: flex;
@@ -66,10 +61,10 @@ $size-xl: 32px;
 .custom {
   flex-direction: row;
 
-  // @include breakpoint-xs {
-  //   flex-direction: column;
-  //   margin: 0 24px 0 24px;
-  // }
+  @include breakpoint-xs {
+    flex-direction: column;
+    margin: 0 24px 0 24px;
+  }
 
 }
 

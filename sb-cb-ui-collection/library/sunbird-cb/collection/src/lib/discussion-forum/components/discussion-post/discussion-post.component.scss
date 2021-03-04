@@ -1,10 +1,6 @@
-// @import 'ws-vars';
-$size-xs: 8px;
-$size-s: 12px;
-$size-m: 16px;
-$size-l: 24px;
-$size-xl: 32px;
-$size-xxl: 40px;
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 // .main-post-user-image {
 //   $size: 40px;
@@ -59,7 +55,6 @@ $size-xxl: 40px;
   height: 36px;
   line-height: 22px;
   padding: 5px 15px;
-  background: #0074b6;
   width: auto;
   box-shadow: none !important;
 

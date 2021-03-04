@@ -1,11 +1,6 @@
-// @import 'ws-vars';
-// @import 'ws-mixins';
-$size-xs: 8px;
-$size-s: 12px;
-$size-m: 16px;
-$size-l: 24px;
-$size-xl: 32px;
-$size-xxl: 40px;
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 .card-container {
   height: 200px;
@@ -104,9 +99,9 @@ $size-xxl: 40px;
     margin-bottom: $size-xs;
     font-size: 1.1rem;
 
-    // @include breakpoint-xs {
-    //   display: none;
-    // }
+    @include breakpoint-xs {
+      display: none;
+    }
   }
 
   .dots-container {
@@ -126,11 +121,11 @@ $size-xxl: 40px;
       display: inline-block;
       transition: background-color 0.5s ease !important;
 
-      // @include breakpoint-xs {
-      //   height: $size-xs;
-      //   width: $size-xs;
-      //   margin: 0 4px;
-      // }
+      @include breakpoint-xs {
+        height: $size-xs;
+        width: $size-xs;
+        margin: 0 4px;
+      }
     }
 
     .dot.active {
@@ -138,10 +133,10 @@ $size-xxl: 40px;
       height: $size-m + ($size-xs / 4);
       width: $size-m + ($size-xs / 4);
 
-      // @include breakpoint-xs {
-      //   height: $size-xs + ($size-xs / 4);
-      //   width: $size-xs + ($size-xs / 4);
-      // }
+      @include breakpoint-xs {
+        height: $size-xs + ($size-xs / 4);
+        width: $size-xs + ($size-xs / 4);
+      }
     }
   }
 }

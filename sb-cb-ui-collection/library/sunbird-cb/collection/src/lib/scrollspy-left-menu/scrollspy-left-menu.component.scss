@@ -1,4 +1,6 @@
-// @import 'ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-common';
+@import '~@sunbird-cb/design-system/src/styles/ws-vars';
+@import '~@sunbird-cb/design-system/src/styles/ws-mixins';
 
 mat-expansion-panel {
   margin: 36px;
@@ -9,7 +11,7 @@ mat-expansion-panel {
   }
 }
 
-.ws-active-left-menu{
-  background-color: #eee!important;
-    font-weight: 700;
+.ws-active-left-menu {
+  background-color: #eee !important;
+  font-weight: 700;
 }
