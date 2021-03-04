@@ -1,4 +1,5 @@
 import { NsWidgetResolver } from '@sunbird-cb/resolver'
+import { ROOT_WIDGET_CONFIG } from './collection.config'
 // Components
 import { BtnAppsComponent } from './btn-apps/btn-apps.component'
 // Modules
@@ -58,13 +59,13 @@ import { CardBrowseCourseModule } from './card-browse-course/card-browse-course.
 import { CardHomeDiscussModule } from './card-home-discuss/card-home-discuss.module'
 import { ChannelHubComponent } from './channel-hub/channel-hub.component'
 import { ChannelHubModule } from './channel-hub/channel-hub.module'
-import { ROOT_WIDGET_CONFIG } from './collection.config'
-// import { ContentStripMultipleComponent } from './content-strip-multiple/content-strip-multiple.component'
+
+import { ContentStripMultipleComponent } from './content-strip-multiple/content-strip-multiple.component'
 // import { ContentStripNewMultipleComponent } from './content-strip-new-multiple/content-strip-new-multiple.component'
-// import { ContentStripMultipleModule } from './content-strip-multiple/content-strip-multiple.module'
+import { ContentStripMultipleModule } from './content-strip-multiple/content-strip-multiple.module'
 // import { ContentStripNewMultipleModule } from './content-strip-new-multiple/content-strip-new-multiple.module'
-// import { ContentStripSingleComponent } from './content-strip-single/content-strip-single.component'
-// import { ContentStripSingleModule } from './content-strip-single/content-strip-single.module'
+import { ContentStripSingleComponent } from './content-strip-single/content-strip-single.component'
+import { ContentStripSingleModule } from './content-strip-single/content-strip-single.module'
 import { DiscussionForumComponent } from './discussion-forum/components/discussion-forum/discussion-forum.component'
 import { DiscussionForumModule } from './discussion-forum/discussion-forum.module'
 import { ElementHtmlComponent } from './element-html/element-html.component'
@@ -125,10 +126,10 @@ import { ReleaseNotesComponent } from './release-notes/release-notes.component'
 import { ReleaseNotesModule } from './release-notes/release-notes.module'
 import { SelectorResponsiveComponent } from './selector-responsive/selector-responsive.component'
 import { SelectorResponsiveModule } from './selector-responsive/selector-responsive.module'
-// import { SlidersMobComponent } from './sliders-mob/sliders-mob.component'
-// import { SlidersMobModule } from './sliders-mob/sliders-mob.module'
-// import { SlidersComponent } from './sliders/sliders.component'
-// import { SlidersModule } from './sliders/sliders.module'
+import { SlidersMobComponent } from './sliders-mob/sliders-mob.component'
+import { SlidersMobModule } from './sliders-mob/sliders-mob.module'
+import { SlidersComponent } from './sliders/sliders.component'
+import { SlidersModule } from './sliders/sliders.module'
 import { TreeCatalogComponent } from './tree-catalog/tree-catalog.component'
 import { TreeCatalogModule } from './tree-catalog/tree-catalog.module'
 import { TreeComponent } from './tree/tree.component'
@@ -151,6 +152,8 @@ import { CardCarrierHomeModule } from './card-carrier-home/card-carrier-home.mod
 // import { DiscussStripMultipleModule } from './discuss-strip-multiple/discuss-strip-multiple.module'
 import { CardActivityComponent } from './card-activity/card-activity.component'
 import { CardActivityModule } from './card-activity/card-activity.module'
+import { BtnFeatureComponent } from './btn-feature/btn-feature.component'
+import { BtnFeatureModule } from './btn-feature/btn-feature.module'
 // import { ContentQualityCheckModule } from './content-quality-check/content-quality-check.module'
 
 export const WIDGET_REGISTERED_MODULES = [
@@ -184,9 +187,9 @@ export const WIDGET_REGISTERED_MODULES = [
   CardHomeTopModule,
   CardBrowseCourseModule,
   CardHomeDiscussModule,
-  // ContentStripMultipleModule,
+  ContentStripMultipleModule,
   // ContentStripNewMultipleModule,
-  // ContentStripSingleModule,
+  ContentStripSingleModule,
   // ContentStripVerticalModule,
   GraphGeneralModule,
   LayoutLinearModule,
@@ -201,7 +204,7 @@ export const WIDGET_REGISTERED_MODULES = [
   PlayerWebPagesModule,
   PlayerYoutubeModule,
   ReleaseNotesModule,
-  // SlidersModule,
+  SlidersModule,
   ElementHtmlModule,
   TreeModule,
   TreeCatalogModule,
@@ -217,12 +220,12 @@ export const WIDGET_REGISTERED_MODULES = [
   DiscussionForumModule,
   GridLayoutModule,
   ErrorResolverModule,
-  // BtnFeatureModule,
+  BtnFeatureModule,
   GalleryViewModule,
   ImageMapResponsiveModule,
   IntranetSelectorModule,
   VideoWrapperModule,
-  // SlidersMobModule,
+  SlidersMobModule,
   CardHubsListModule,
   CardNetworkHomeModule,
   CardCourseModule,
@@ -375,11 +378,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetSubType: ROOT_WIDGET_CONFIG.channelHub.channelHub,
     component: ChannelHubComponent,
   },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.multiStrip,
-  //   component: ContentStripMultipleComponent,
-  // },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.multiStrip,
+    component: ContentStripMultipleComponent,
+  },
   // {
   //   widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
   //   widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.multiStripNew,
@@ -390,11 +393,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
   //   widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.verticalStrip,
   //   component: ContentStripVerticalComponent,
   // },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.singleStrip,
-  //   component: ContentStripSingleComponent,
-  // },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.singleStrip,
+    component: ContentStripSingleComponent,
+  },
   {
     widgetType: ROOT_WIDGET_CONFIG.graph._type,
     widgetSubType: ROOT_WIDGET_CONFIG.graph.graphGeneral,
@@ -470,16 +473,16 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetSubType: ROOT_WIDGET_CONFIG.releaseNotes.user,
     component: ReleaseNotesComponent,
   },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.slider._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.slider.carousel,
-  //   component: SlidersComponent,
-  // },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.slider._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.slider.mob,
-  //   component: SlidersMobComponent,
-  // },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.slider._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.slider.carousel,
+    component: SlidersComponent,
+  },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.slider._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.slider.mob,
+    component: SlidersMobComponent,
+  },
   {
     widgetType: ROOT_WIDGET_CONFIG.tree._type,
     widgetSubType: ROOT_WIDGET_CONFIG.tree.tree,
@@ -556,11 +559,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetSubType: ROOT_WIDGET_CONFIG.errorResolver.errorResolver,
     component: ErrorResolverComponent,
   },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.actionButton._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.actionButton.feature,
-  //   component: BtnFeatureComponent,
-  // },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.actionButton._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.actionButton.feature,
+    component: BtnFeatureComponent,
+  },
   {
     widgetType: ROOT_WIDGET_CONFIG.gallery._type,
     widgetSubType: ROOT_WIDGET_CONFIG.gallery.galleryView,

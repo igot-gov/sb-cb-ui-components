@@ -62,12 +62,11 @@ export class ContentStripSingleComponent extends WidgetBaseComponent
     ) {
       this.checkParentStatus('fetching', 0)
       this.contentStripSvc.getContentStripResponseApi(this.widgetData.request.api).subscribe(results => {
-          this.convertToStrip(results.contents || [])
-          this.checkParentStatus('done', results.contents.length)
-        },
-                                                                                             () => {
-          this.checkParentStatus('error', 0)
-        },
+        this.convertToStrip(results.contents || [])
+        this.checkParentStatus('done', results.contents.length)
+      },                                                                                     () => {
+        this.checkParentStatus('error', 0)
+      },
       )
     }
   }
@@ -79,9 +78,9 @@ export class ContentStripSingleComponent extends WidgetBaseComponent
     ) {
       this.checkParentStatus('fetching', 0)
       this.contentSvc.search(this.widgetData.request.search).subscribe(results => {
-          this.convertToStrip(results.result || [])
-          this.checkParentStatus('done', results.result.length)
-        },
+        this.convertToStrip(results.result || [])
+        this.checkParentStatus('done', results.result.length)
+      },
                                                                        () => {
           this.checkParentStatus('error', 0)
         },
@@ -98,9 +97,9 @@ export class ContentStripSingleComponent extends WidgetBaseComponent
       this.contentSvc
         .searchRegionRecommendation(this.widgetData.request.searchRegionRecommendation)
         .subscribe(results => {
-            this.convertToStrip(results.contents || [])
-            this.checkParentStatus('done', results.contents.length)
-          },
+          this.convertToStrip(results.contents || [])
+          this.checkParentStatus('done', results.contents.length)
+        },
                    () => {
             this.checkParentStatus('error', 0)
           },
@@ -115,9 +114,9 @@ export class ContentStripSingleComponent extends WidgetBaseComponent
     ) {
       this.checkParentStatus('fetching', 0)
       this.contentSvc.searchV6(this.widgetData.request.searchV6).subscribe(results => {
-          this.convertToStrip(results.result.content || [])
-          this.checkParentStatus('done', results.result.content.length)
-        },
+        this.convertToStrip(results.result.content || [])
+        this.checkParentStatus('done', results.result.content.length)
+      },
                                                                            () => {
           this.checkParentStatus('error', 0)
         },
@@ -132,9 +131,9 @@ export class ContentStripSingleComponent extends WidgetBaseComponent
     ) {
       this.checkParentStatus('fetching', 0)
       this.contentSvc.fetchMultipleContent(this.widgetData.request.ids).subscribe(results => {
-          this.convertToStrip(results || [])
-          this.checkParentStatus('done', results.length)
-        },
+        this.convertToStrip(results || [])
+        this.checkParentStatus('done', results.length)
+      },
                                                                                   () => {
           this.checkParentStatus('error', 0)
         },
