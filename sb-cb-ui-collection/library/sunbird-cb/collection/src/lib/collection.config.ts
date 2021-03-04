@@ -145,4 +145,8 @@ export const ROOT_WIDGET_CONFIG = {
     _type: 'wrapper',
     videoWrapper: 'videoWrapper',
   },
+  menus: {
+    _type: 'menus',
+    leftMenu: 'leftMenu',
+  },
 }

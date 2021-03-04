@@ -1065,16 +1065,11 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@sunbird-cb/utils@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@sunbird-cb/utils/-/utils-0.0.1.tgz#4d4a7b10cd7e1eb66105980ee9f1e002748d979d"
-  integrity sha512-Z/1QTjQRiOhmqzrVvVzB3SlLpd9eowz7J06LOJOQShbCGNjk8If1IM/n3JKD9cZAYWuIy1HhrtKfG/bvFp1gvA==
+"@sunbird-cb/utils@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@sunbird-cb/utils/-/utils-0.0.3.tgz#a64e571b1f79813aeda1e98af0e36e56d0fe2f5b"
+  integrity sha512-3gWGgGHTyoVcWalJeP+PKdgnVvr4Q3I38fFJRZGFxN1JwyFQMhfmtBu9r6thZRBkRwygRQLURfzcN+FGXYm7nQ==
   dependencies:
-    "@types/lodash" "^4.14.168"
-    keycloak-angular "^6.1.0"
-    moment "^2.29.1"
-    ngx-image-cropper "^3.3.4"
-    rxjs "~6.5.2"
     tslib "^1.9.0"
 
 "@szmarczak/http-timer@^1.1.2":

@@ -153,6 +153,8 @@ import { CardActivityComponent } from './card-activity/card-activity.component'
 import { CardActivityModule } from './card-activity/card-activity.module'
 // import { ContentQualityCheckModule } from './content-quality-check/content-quality-check.module'
 import { UIAdminTableModule } from './ui-admin-table/ui-admin-table.module'
+import { LeftMenuModule } from './left-menu/left-menu.module'
+import { LeftMenuComponent } from './left-menu/left-menu.component'
 
 export const WIDGET_REGISTERED_MODULES = [
   AvatarPhotoModule,
@@ -233,6 +235,7 @@ export const WIDGET_REGISTERED_MODULES = [
   CardActivityModule,
   // ActivityStripMultipleModule,
   UIAdminTableModule,
+  LeftMenuModule
 ]
 
 export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] = [
@@ -597,5 +600,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetType: ROOT_WIDGET_CONFIG.card._type,
     widgetSubType: ROOT_WIDGET_CONFIG.card.home_carrier,
     component: CardCarrierHomeComponent,
+  },
+
+  {
+    widgetType: ROOT_WIDGET_CONFIG.menus._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.menus.leftMenu,
+    component: LeftMenuComponent,
   },
 ]
