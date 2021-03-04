@@ -36,6 +36,8 @@ export namespace NsGoal {
   }
 
   export interface IGoal {
+    childNodes: Iterable<string> | null | undefined
+    identifier: string
     id: string
     name: string
     description: string
