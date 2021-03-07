@@ -161,6 +161,8 @@ import { LeftMenuModule } from './left-menu/left-menu.module'
 import { LeftMenuComponent } from './left-menu/left-menu.component'
 import { UIORGTableModule } from './ui-org-table/ui-org-table.module'
 
+import { BreadcrumbsOrgModule } from './breadcrumbs-org/breadcrumbs-org.module'
+
 export const WIDGET_REGISTERED_MODULES = [
   AvatarPhotoModule,
   BtnAppsModule,
@@ -242,6 +244,7 @@ export const WIDGET_REGISTERED_MODULES = [
   UIAdminTableModule,
   LeftMenuModule,
   UIORGTableModule,
+  BreadcrumbsOrgModule,
 ]
 
 export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] = [

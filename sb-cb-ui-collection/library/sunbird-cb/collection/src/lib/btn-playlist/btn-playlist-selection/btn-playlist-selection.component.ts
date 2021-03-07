@@ -39,15 +39,15 @@ export class BtnPlaylistSelectionComponent implements OnInit {
 
   ngOnInit() {
     this.fetchPlaylistStatus = 'fetching'
-    this.playlistSvc.getAllPlaylistsApi(true).subscribe(response => {
+    this.playlistSvc.getAllPlaylistsApi(true).subscribe(() => {
       this.fetchPlaylistStatus = 'done'
-      this.playlists = response.user
-      this.playlists = this.playlists.concat(response.share)
-      this.playlists.forEach(playlist => {
-        if (playlist.contents.map(content => content.identifier).includes(this.contentId)) {
-          this.selectedPlaylists.add(playlist.id)
-        }
-      })
+      this.playlists = []
+      // this.playlists = this.playlists.concat(response.share)
+      // this.playlists.forEach(playlist => {
+      //   if (playlist.contents.map(content => content.identifier).includes(this.contentId)) {
+      //     this.selectedPlaylists.add(playlist.id)
+      //   }
+      // })
     })
   }
 

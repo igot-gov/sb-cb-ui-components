@@ -139,7 +139,7 @@ export class BtnPlaylistService {
     )
   }
   // tslint: disable-next-line
-  patchPlaylist(playlist: NsPlaylist.IPlaylist, newIDs?: string[]) {
+  // patchPlaylist(playlist: NsPlaylist.IPlaylist, newIDs?: string[]) {
     // need to fix
     // const contentIds = playlist.children.map((content: { identifier: any }) => {
     //   const id = content.identifier
@@ -156,7 +156,7 @@ export class BtnPlaylistService {
     //   playlist_title: playlist.name,
     //   versionKey: playlist.versionKey,
     // })
-  }
+  // }
 
   addPlaylistContent(playlist: any, contentIds: string[], updatePlaylists = true) {
     return this.addToPlaylist(
