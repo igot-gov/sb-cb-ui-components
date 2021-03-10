@@ -8,29 +8,14 @@ This package works as a demo to illustrate how to share typography and colors th
 - `or `
 - `npm i @sunbird-cb/design-system`
 ##
-# Material Design Colors
-If you're using `@angular/material`, this package provides prebuilt primary, accent and warn colors. These variables are named
-- `$demo-primary`
-- `$demo-accent`
-- `$demo-warn`
-
-They can be used when configuring the `@angular/material` palette:
+# Publish
+- Direct publish
 ```
-@import '~@angular/material/theming';
-@import '~@tallang/shared-design-demo/theme';
-
-@include mat-core();
-$primary-color:  mat-palette($demo-primary);
-$accent-color:   mat-palette($demo-accent);
-$warn-color:     mat-palette($demo-warn);
-$theme:          mat-light-theme($primary-color, $accent-color, $warn-color);
-
-@include angular-material-theme($theme);
+npm publish
 ```
-
 # Shared typography
 The typography configuration is implemented as a SASS mixin, and can be used by including it in your styles:
 ```
 @import '~@sunbird-cb/design-system/<name/path>';
 ```
-The `design-system` mixin includes `color`, `font-size`, `font-weight`, `line-height`, `margin` and alignment for all common HTML text elements (h1, h2, p, b, strong, i, em, mark, del, ins).
+```
