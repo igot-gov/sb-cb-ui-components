@@ -61,7 +61,7 @@ export namespace NsCarrierStripNewMultiple {
 
   export interface IStripInfo {
     mode: 'below' | 'popup' | 'modal'
-    visibilityMode?: 'hidden' | 'visible'
+    visibilityMode: 'hidden' | 'visible'
     icon: {
       icon: string
       scale: number

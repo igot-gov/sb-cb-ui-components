@@ -18,7 +18,7 @@ interface IStripUnitContentData {
   canHideStrip: boolean
   mode?: string
   showStrip: boolean
-  widgets?: NsWidgetResolver.IRenderConfigWithAnyData[]
+  widgets?: NsWidgetResolver.IRenderConfigWithAnyData[] | []
   stripTitle: string
   stripName?: string
   stripInfo?: NsCarrierStripNewMultiple.IStripInfo
@@ -32,6 +32,8 @@ interface IStripUnitContentData {
     path: string
     queryParams: any
   } | null
+  description: any
+  stripLogo: any
 }
 @Component({
   selector: 'ws-widget-carrier-strip-multiple',
@@ -65,7 +67,7 @@ export class CarrierStripMultipleComponent extends WidgetBaseComponent
     private contentStripSvc: ContentStripNewMultipleService,
     private contentSvc: WidgetContentService,
     private loggerSvc: LoggerService,
-    protected utilitySvc: UtilityService,
+    public utilitySvc: UtilityService,
   ) {
     super()
   }
