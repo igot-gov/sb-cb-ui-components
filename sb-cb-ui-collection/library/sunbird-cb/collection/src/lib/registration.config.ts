@@ -61,9 +61,9 @@ import { ChannelHubComponent } from './channel-hub/channel-hub.component'
 import { ChannelHubModule } from './channel-hub/channel-hub.module'
 
 import { ContentStripMultipleComponent } from './content-strip-multiple/content-strip-multiple.component'
-// import { ContentStripNewMultipleComponent } from './content-strip-new-multiple/content-strip-new-multiple.component'
+import { ContentStripNewMultipleComponent } from './content-strip-new-multiple/content-strip-new-multiple.component'
 import { ContentStripMultipleModule } from './content-strip-multiple/content-strip-multiple.module'
-// import { ContentStripNewMultipleModule } from './content-strip-new-multiple/content-strip-new-multiple.module'
+ import { ContentStripNewMultipleModule } from './content-strip-new-multiple/content-strip-new-multiple.module'
 import { ContentStripSingleComponent } from './content-strip-single/content-strip-single.component'
 import { ContentStripSingleModule } from './content-strip-single/content-strip-single.module'
 import { DiscussionForumComponent } from './discussion-forum/components/discussion-forum/discussion-forum.component'
@@ -88,10 +88,10 @@ import { LayoutLinearComponent } from './layout-linear/layout-linear.component'
 import { LayoutLinearModule } from './layout-linear/layout-linear.module'
 import { LayoutTabComponent } from './layout-tab/layout-tab.component'
 import { LayoutTabModule } from './layout-tab/layout-tab.module'
-// import { NetworkStripMultipleModule } from './network-strip-multiple/network-strip-multiple.module'
-// import { CarrierStripMultipleModule } from './carrier-strip-multiple/carrier-strip-multiple.module'
+ import { NetworkStripMultipleModule } from './network-strip-multiple/network-strip-multiple.module'
+ import { CarrierStripMultipleModule } from './carrier-strip-multiple/carrier-strip-multiple.module'
 // import { ActivityStripMultipleModule } from './activity-strip-multiple/activity-strip-multiple.module'
-// import { NetworkStripMultipleComponent } from './network-strip-multiple/network-strip-multiple.component'
+ import { NetworkStripMultipleComponent } from './network-strip-multiple/network-strip-multiple.component'
 // import { ActivityStripMultipleComponent } from './activity-strip-multiple/activity-strip-multiple.component'
 import { PageComponent } from './page/page.component'
 import { PageModule } from './page/page.module'
@@ -147,9 +147,9 @@ import { CardCourseComponent } from './card-course/card-course.component'
 import { CardCourseModule } from './card-course/card-course.module'
 import { CardCarrierHomeComponent } from './card-carrier-home/card-carrier-home.component'
 import { CardCarrierHomeModule } from './card-carrier-home/card-carrier-home.module'
-// import { CarrierStripMultipleComponent } from './carrier-strip-multiple/carrier-strip-multiple.component'
-// import { DiscussStripMultipleComponent } from './discuss-strip-multiple/discuss-strip-multiple.component'
-// import { DiscussStripMultipleModule } from './discuss-strip-multiple/discuss-strip-multiple.module'
+import { CarrierStripMultipleComponent } from './carrier-strip-multiple/carrier-strip-multiple.component'
+import { DiscussStripMultipleComponent } from './discuss-strip-multiple/discuss-strip-multiple.component'
+import { DiscussStripMultipleModule } from './discuss-strip-multiple/discuss-strip-multiple.module'
 import { CardActivityComponent } from './card-activity/card-activity.component'
 import { CardActivityModule } from './card-activity/card-activity.module'
 import { BtnFeatureComponent } from './btn-feature/btn-feature.component'
@@ -195,13 +195,13 @@ export const WIDGET_REGISTERED_MODULES = [
   CardBrowseCourseModule,
   CardHomeDiscussModule,
   ContentStripMultipleModule,
-  // ContentStripNewMultipleModule,
+  ContentStripNewMultipleModule,
   ContentStripSingleModule,
   // ContentStripVerticalModule,
   GraphGeneralModule,
   LayoutLinearModule,
   LayoutTabModule,
-  // NetworkStripMultipleModule,
+  NetworkStripMultipleModule,
   PickerContentModule,
   PlayerAmpModule,
   PlayerAudioModule,
@@ -237,8 +237,8 @@ export const WIDGET_REGISTERED_MODULES = [
   CardNetworkHomeModule,
   CardCourseModule,
   CardCarrierHomeModule,
-  // CarrierStripMultipleModule,
-  // DiscussStripMultipleModule,
+  CarrierStripMultipleModule,
+  DiscussStripMultipleModule,
   CardActivityModule,
   // ActivityStripMultipleModule,
   UIAdminTableModule,
@@ -394,11 +394,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.multiStrip,
     component: ContentStripMultipleComponent,
   },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.multiStripNew,
-  //   component: ContentStripNewMultipleComponent,
-  // },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.multiStripNew,
+    component: ContentStripNewMultipleComponent,
+  },
   // {
   //   widgetType: ROOT_WIDGET_CONFIG.contentStrip._type,
   //   widgetSubType: ROOT_WIDGET_CONFIG.contentStrip.verticalStrip,
@@ -424,26 +424,26 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetSubType: ROOT_WIDGET_CONFIG.layout.tab,
     component: LayoutTabComponent,
   },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.networkStrip._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.networkStrip.multipleStrip,
-  //   component: NetworkStripMultipleComponent,
-  // },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.discussStrip._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.discussStrip.multipleStrip,
+    component: DiscussStripMultipleComponent,
+  },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.networkStrip._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.networkStrip.multipleStrip,
+    component: NetworkStripMultipleComponent,
+  },
   // {
   //   widgetType: ROOT_WIDGET_CONFIG.activityStrip._type,
   //   widgetSubType: ROOT_WIDGET_CONFIG.activityStrip.multipleStrip,
   //   component: ActivityStripMultipleComponent,
   // },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.carrierStrip._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.carrierStrip.multipleStrip,
-  //   component: CarrierStripMultipleComponent,
-  // },
-  // {
-  //   widgetType: ROOT_WIDGET_CONFIG.discussStrip._type,
-  //   widgetSubType: ROOT_WIDGET_CONFIG.discussStrip.multipleStrip,
-  //   component: DiscussStripMultipleComponent,
-  // },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.carrierStrip._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.carrierStrip.multipleStrip,
+    component: CarrierStripMultipleComponent,
+  },
   {
     widgetType: ROOT_WIDGET_CONFIG.player._type,
     widgetSubType: ROOT_WIDGET_CONFIG.player.amp,

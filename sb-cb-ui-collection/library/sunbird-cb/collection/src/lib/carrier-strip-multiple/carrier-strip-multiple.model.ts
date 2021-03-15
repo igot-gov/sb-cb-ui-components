@@ -38,6 +38,16 @@ export namespace NsCarrierStripNewMultiple {
     errorWidget?: NsWidgetResolver.IRenderConfigWithAnyData
     refreshEvent?: Record<'eventType' | 'from', string>
     fetchLikes?: boolean
+    viewMoreUrl?: {
+      viewMoreText: string
+      path: string
+      queryParams?: {
+        pageNo?: number
+        pageSize?: number
+        pageState?: string
+        sourceFields?: string
+      }
+    }
   }
   export interface IStripRequestApi {
     path: string

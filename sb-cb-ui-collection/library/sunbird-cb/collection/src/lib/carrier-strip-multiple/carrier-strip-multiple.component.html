@@ -11,7 +11,6 @@
     <ng-container *ngIf="stripsResultDataMap[key].showStrip">
       <a name="{{stripsResultDataMap[key]?.stripTitle}}">
         <div *ngIf="
-                  stripsResultDataMap[key]?.widgets?.length ||
                   stripsResultDataMap[key]?.showOnNoData ||
                   stripsResultDataMap[key]?.showOnLoader ||
                   stripsResultDataMap[key]?.showOnError
