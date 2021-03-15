@@ -7,8 +7,8 @@ var concat = require('gulp-concat');
 gulp.task('default', mergeSass);
 
 function mergeSass(done) {
-  return gulp.src(['src/palette.scss', 'src/*.scss'])
-  .pipe(concat('theme.scss'))
+  return gulp.src(['src/', 'src/*'],{allowEmpty: true})
+  // .pipe(concat('theme.scss'))
   .pipe(sass())
-  .pipe(gulp.dest('./'));
+  .pipe(gulp.dest('./design-system'));
 }
