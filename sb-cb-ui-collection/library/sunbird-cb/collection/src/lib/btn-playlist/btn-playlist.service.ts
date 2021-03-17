@@ -138,25 +138,23 @@ export class BtnPlaylistService {
       }),
     )
   }
-  // tslint: disable-next-line
-  // patchPlaylist(playlist: NsPlaylist.IPlaylist, newIDs?: string[]) {
-    // need to fix
-    // const contentIds = playlist.children.map((content: { identifier: any }) => {
-    //   const id = content.identifier
-    //   return id
-    // })
-    // if (newIDs && newIDs.length > 0) {
-    //   newIDs.forEach(content => {
-    //     contentIds.push(content)
-    //   })
-    // }
 
-    // return this.http.patch(`${API_END_POINTS.updatePlaylists(playlist.identifier)}`, {
-    //   contentIds,
-    //   playlist_title: playlist.name,
-    //   versionKey: playlist.versionKey,
-    // })
-  // }
+  // tslint: disable-next-line
+  patchPlaylist(playlist: NsPlaylist.IPlaylist, newIDs?: string[]) {
+    // const contentIds = playlist ? .children ? .map((content: { identifier: any }) => content.identifier)
+    const contentIds: any[] = []
+    if (newIDs && newIDs.length > 0) {
+      newIDs.forEach(content => {
+        contentIds.push(content)
+      })
+    }
+
+    return this.http.patch(`${API_END_POINTS.updatePlaylists(playlist.identifier)}`, {
+      contentIds,
+      playlist_title: playlist.name,
+      versionKey: playlist.versionKey,
+    })
+  }
 
   addPlaylistContent(playlist: any, contentIds: string[], updatePlaylists = true) {
     return this.addToPlaylist(

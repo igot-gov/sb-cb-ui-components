@@ -41,6 +41,9 @@ export namespace NsPlaylist {
     sharedBy?: string
     sharedByDisplayName?: string
     sharedOn?: string
+    children?: string[]
+    identifier: string
+    versionKey: string
   }
 
   export interface IPlaylistCreateRequest {

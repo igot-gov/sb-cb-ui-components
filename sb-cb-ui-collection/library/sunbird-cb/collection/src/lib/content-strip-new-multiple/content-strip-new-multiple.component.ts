@@ -14,7 +14,7 @@ import {
 import { Subscription } from 'rxjs'
 import { filter } from 'rxjs/operators'
 import { WidgetUserService } from '../_services/widget-user.service'
-// import { SearchServService } from '@ws/app/src/lib/routes/search/services/search-serv.service'
+// import { SearchServService } from '../_services/search-serv.service'
 
 interface IStripUnitContentData {
   key: string
@@ -36,6 +36,7 @@ interface IStripUnitContentData {
     queryParams: any
   } | null
 }
+
 @Component({
   selector: 'ws-widget-content-strip-new-multiple',
   templateUrl: './content-strip-new-multiple.component.html',
@@ -71,7 +72,7 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
     private eventSvc: EventService,
     private configSvc: ConfigurationsService,
     protected utilitySvc: UtilityService,
-    private searchServSvc: SearchServService,
+    // private searchServSvc: SearchServService,
     private userSvc: WidgetUserService,
   ) {
     super()
@@ -327,9 +328,9 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
                 f:
                   strip.request && strip.request.searchV6 && strip.request.searchV6.filters
                     ? JSON.stringify(
-                      this.searchServSvc.transformSearchV6Filters(
-                        strip.request.searchV6.filters
-                      ),
+                      // this.searchServSvc.transformSearchV6Filters(
+                      strip.request.searchV6.filters
+                      // ),
                     )
                     : {},
               },
