@@ -63,7 +63,7 @@ import { ChannelHubModule } from './channel-hub/channel-hub.module'
 import { ContentStripMultipleComponent } from './content-strip-multiple/content-strip-multiple.component'
 import { ContentStripNewMultipleComponent } from './content-strip-new-multiple/content-strip-new-multiple.component'
 import { ContentStripMultipleModule } from './content-strip-multiple/content-strip-multiple.module'
- import { ContentStripNewMultipleModule } from './content-strip-new-multiple/content-strip-new-multiple.module'
+import { ContentStripNewMultipleModule } from './content-strip-new-multiple/content-strip-new-multiple.module'
 import { ContentStripSingleComponent } from './content-strip-single/content-strip-single.component'
 import { ContentStripSingleModule } from './content-strip-single/content-strip-single.module'
 import { DiscussionForumComponent } from './discussion-forum/components/discussion-forum/discussion-forum.component'
@@ -88,10 +88,10 @@ import { LayoutLinearComponent } from './layout-linear/layout-linear.component'
 import { LayoutLinearModule } from './layout-linear/layout-linear.module'
 import { LayoutTabComponent } from './layout-tab/layout-tab.component'
 import { LayoutTabModule } from './layout-tab/layout-tab.module'
- import { NetworkStripMultipleModule } from './network-strip-multiple/network-strip-multiple.module'
- import { CarrierStripMultipleModule } from './carrier-strip-multiple/carrier-strip-multiple.module'
+import { NetworkStripMultipleModule } from './network-strip-multiple/network-strip-multiple.module'
+import { CarrierStripMultipleModule } from './carrier-strip-multiple/carrier-strip-multiple.module'
 // import { ActivityStripMultipleModule } from './activity-strip-multiple/activity-strip-multiple.module'
- import { NetworkStripMultipleComponent } from './network-strip-multiple/network-strip-multiple.component'
+import { NetworkStripMultipleComponent } from './network-strip-multiple/network-strip-multiple.component'
 // import { ActivityStripMultipleComponent } from './activity-strip-multiple/activity-strip-multiple.component'
 import { PageComponent } from './page/page.component'
 import { PageModule } from './page/page.module'
@@ -103,6 +103,9 @@ import { ProfileCompetenciesComponent } from './profile-v2/profile-competencies/
 import { ProfileCompetenciesModule } from './profile-v2/profile-competencies/profile-competencies.module'
 import { ProfileCretificationsComponent } from './profile-v2/profile-cretifications/profile-cretifications.component'
 import { ProfileCretificationsModule } from './profile-v2/profile-cretifications/profile-cretifications.module'
+import { ProfileCretificationsV2Component } from './profile-v2/profile-cretifications-v2/profile-cretifications-v2.component'
+import { ProfileCretificationsV2Module } from './profile-v2/profile-cretifications-v2/profile-cretifications-v2.module'
+
 import { ProfileDepartmentsComponent } from './profile-v2/profile-departments/profile-departments.component'
 import { ProfileDepartmentsModule } from './profile-v2/profile-departments/profile-departments.module'
 import { ProfileHobbiesModule } from './profile-v2/profile-hobbies/profile-hobbies.module'
@@ -220,6 +223,7 @@ export const WIDGET_REGISTERED_MODULES = [
   ProfileCareerModule,
   ProfileCompetenciesModule,
   ProfileCretificationsModule,
+  ProfileCretificationsV2Module,
   ProfileDepartmentsModule,
   ProfileHobbiesModule,
   EmbeddedPageModule,
@@ -528,6 +532,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetType: ROOT_WIDGET_CONFIG.profileV2._type,
     widgetSubType: ROOT_WIDGET_CONFIG.profileV2.certifications,
     component: ProfileCretificationsComponent,
+  },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.profileV2._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.profileV2.certificationsV2,
+    component: ProfileCretificationsV2Component,
   },
   {
     widgetType: ROOT_WIDGET_CONFIG.profileV2._type,
