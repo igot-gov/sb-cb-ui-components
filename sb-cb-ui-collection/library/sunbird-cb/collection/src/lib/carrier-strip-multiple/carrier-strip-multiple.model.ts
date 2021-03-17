@@ -38,16 +38,11 @@ export namespace NsCarrierStripNewMultiple {
     errorWidget?: NsWidgetResolver.IRenderConfigWithAnyData
     refreshEvent?: Record<'eventType' | 'from', string>
     fetchLikes?: boolean
-    viewMoreUrl?: {
+     viewMoreUrl: {
       viewMoreText: string
       path: string
-      queryParams?: {
-        pageNo?: number
-        pageSize?: number
-        pageState?: string
-        sourceFields?: string
-      }
-    }
+      queryParams: any
+    } | null
   }
   export interface IStripRequestApi {
     path: string
@@ -61,7 +56,7 @@ export namespace NsCarrierStripNewMultiple {
 
   export interface IStripInfo {
     mode: 'below' | 'popup' | 'modal'
-    visibilityMode: 'hidden' | 'visible'
+    visibilityMode?: 'hidden' | 'visible'
     icon: {
       icon: string
       scale: number

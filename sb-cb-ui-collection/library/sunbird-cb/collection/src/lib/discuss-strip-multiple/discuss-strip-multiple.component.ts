@@ -34,6 +34,8 @@ interface IStripUnitContentData {
     path: string
     queryParams: any
   } | null
+  description: any
+  stripLogo: any
 }
 @Component({
   selector: 'ws-widget-discuss-strip-multiple',
@@ -69,7 +71,7 @@ export class DiscussStripMultipleComponent extends WidgetBaseComponent
     private loggerSvc: LoggerService,
     // private eventSvc: EventService,
     // private configSvc: ConfigurationsService,
-    protected utilitySvc: UtilityService,
+    public utilitySvc: UtilityService,
     // private searchServSvc: SearchServService,
   ) {
     super()

@@ -18,7 +18,7 @@ interface IStripUnitContentData {
   canHideStrip: boolean
   mode?: string
   showStrip: boolean
-  widgets?: NsWidgetResolver.IRenderConfigWithAnyData[] | []
+  widgets?: NsWidgetResolver.IRenderConfigWithAnyData[]
   stripTitle: string
   stripName?: string
   stripInfo?: NsCarrierStripNewMultiple.IStripInfo
@@ -32,8 +32,8 @@ interface IStripUnitContentData {
     path: string
     queryParams: any
   } | null
-  description: any
-  stripLogo: any
+  stripLogo?: string | null
+  description?: string | null
 }
 @Component({
   selector: 'ws-widget-carrier-strip-multiple',

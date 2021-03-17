@@ -38,6 +38,13 @@ export namespace NsDiscussStripNewMultiple {
     errorWidget?: NsWidgetResolver.IRenderConfigWithAnyData
     refreshEvent?: Record<'eventType' | 'from', string>
     fetchLikes?: boolean
+    viewMoreUrl: {
+      viewMoreText: string
+      path: string
+      queryParams: any
+    } | null
+    description: any
+    stripLogo: any
   }
   export interface IStripRequestApi {
     path: string

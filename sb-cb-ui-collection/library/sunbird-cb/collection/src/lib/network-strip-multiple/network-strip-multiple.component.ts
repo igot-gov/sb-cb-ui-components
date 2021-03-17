@@ -33,6 +33,8 @@ interface IStripUnitContentData {
     path: string
     queryParams: any
   } | null
+  stripLogo?: string | null
+  description?: string | null
 }
 @Component({
   selector: 'ws-widget-network-strip-multiple',
@@ -68,7 +70,7 @@ export class NetworkStripMultipleComponent extends WidgetBaseComponent
     private loggerSvc: LoggerService,
     // private eventSvc: EventService,
     // private configSvc: ConfigurationsService,
-    protected utilitySvc: UtilityService,
+    public utilitySvc: UtilityService,
     // private searchServSvc: SearchServService,
   ) {
     super()
