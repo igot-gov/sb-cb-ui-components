@@ -13,8 +13,8 @@ import {
 } from '@sunbird-cb/utils'
 import { Subscription } from 'rxjs'
 import { filter } from 'rxjs/operators'
+import { WidgetUserService } from '../_services/widget-user.service'
 // import { SearchServService } from '@ws/app/src/lib/routes/search/services/search-serv.service'
-// import { WidgetUserService } from '@ws-widget/collection/src/lib/_services/widget-user.service'
 
 interface IStripUnitContentData {
   key: string
@@ -71,8 +71,8 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
     private eventSvc: EventService,
     private configSvc: ConfigurationsService,
     protected utilitySvc: UtilityService,
-    // private searchServSvc: SearchServService,
-    // private userSvc: WidgetUserService,
+    private searchServSvc: SearchServService,
+    private userSvc: WidgetUserService,
   ) {
     super()
   }
@@ -142,7 +142,7 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
     this.fetchFromSearchRegionRecommendation(strip, calculateParentStatus)
     this.fetchFromSearchV6(strip, calculateParentStatus)
     this.fetchFromIds(strip, calculateParentStatus)
-    // this.fetchFromEnrollmentList(strip, calculateParentStatus)
+    this.fetchFromEnrollmentList(strip, calculateParentStatus)
     // } else {
     //   this.fetchNetworkUsers(strip, calculateParentStatus)
     // }
@@ -267,7 +267,7 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
                   strip.request && strip.request.searchV6 && strip.request.searchV6.filters
                     ? JSON.stringify(
                       // this.searchServSvc.transformSearchV6Filters(
-                        strip.request.searchV6.filters
+                      strip.request.searchV6.filters
                       // ),
                     )
                     : {},
@@ -306,52 +306,52 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
       )
     }
   }
-  // fetchFromEnrollmentList(strip: NsContentStripNewMultiple.IContentStripUnit, calculateParentStatus = true) {
-  //   if (strip.request && strip.request.enrollmentList && Object.keys(strip.request.enrollmentList).length) {
-  //     let userId = ''
-  //     let content: NsContent.IContent[]
-  //     if (this.configSvc.userProfile) {
-  //       userId = this.configSvc.userProfile.userId
-  //     }
-  //     // tslint:disable-next-line: deprecation
-  //     this.userSvc.fetchUserBatchList(userId).subscribe(
-  //       courses => {
-  //         const showViewMore = Boolean(
-  //           courses.length > 5 && strip.stripConfig && strip.stripConfig.postCardForSearch,
-  //         )
-  //         const viewMoreUrl = showViewMore
-  //           ? {
-  //             path: '/app/search/learning',
-  //             queryParams: {
-  //               q: strip.request && strip.request.searchV6 && strip.request.searchV6.query,
-  //               f:
-  //                 strip.request && strip.request.searchV6 && strip.request.searchV6.filters
-  //                   ? JSON.stringify(
-  //                     // this.searchServSvc.transformSearchV6Filters(
-  //                       strip.request.searchV6.filters
-  //                     // ),
-  //                   )
-  //                   : {},
-  //             },
-  //           }
-  //           : null
-  //         if (courses && courses.length) {
-  //           content = courses.map(c => c.content)
-  //         }
-  //         this.processStrip(
-  //           strip,
-  //           this.transformContentsToWidgets(content, strip),
-  //           'done',
-  //           calculateParentStatus,
-  //           viewMoreUrl,
-  //         )
-  //       },
-  //       () => {
-  //         this.processStrip(strip, [], 'error', calculateParentStatus, null)
-  //       }
-  //     )
-  //   }
-  // }
+  fetchFromEnrollmentList(strip: NsContentStripNewMultiple.IContentStripUnit, calculateParentStatus = true) {
+    if (strip.request && strip.request.enrollmentList && Object.keys(strip.request.enrollmentList).length) {
+      let userId = ''
+      let content: NsContent.IContent[]
+      if (this.configSvc.userProfile) {
+        userId = this.configSvc.userProfile.userId
+      }
+      // tslint:disable-next-line: deprecation
+      this.userSvc.fetchUserBatchList(userId).subscribe(
+        courses => {
+          const showViewMore = Boolean(
+            courses.length > 5 && strip.stripConfig && strip.stripConfig.postCardForSearch,
+          )
+          const viewMoreUrl = showViewMore
+            ? {
+              path: '/app/search/learning',
+              queryParams: {
+                q: strip.request && strip.request.searchV6 && strip.request.searchV6.query,
+                f:
+                  strip.request && strip.request.searchV6 && strip.request.searchV6.filters
+                    ? JSON.stringify(
+                      this.searchServSvc.transformSearchV6Filters(
+                        strip.request.searchV6.filters
+                      ),
+                    )
+                    : {},
+              },
+            }
+            : null
+          if (courses && courses.length) {
+            content = courses.map(c => c.content)
+          }
+          this.processStrip(
+            strip,
+            this.transformContentsToWidgets(content, strip),
+            'done',
+            calculateParentStatus,
+            viewMoreUrl,
+          )
+        },
+        () => {
+          this.processStrip(strip, [], 'error', calculateParentStatus, null)
+        }
+      )
+    }
+  }
 
   private transformContentsToWidgets(
     contents: NsContent.IContent[],
