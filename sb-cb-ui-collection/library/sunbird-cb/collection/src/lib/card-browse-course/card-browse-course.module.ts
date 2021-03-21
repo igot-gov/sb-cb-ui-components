@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { NgModule } from '@angular/core'
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
 import { MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatExpansionModule, MatIconModule } from '@angular/material'
 import { HorizontalScrollerModule } from '@sunbird-cb/utils'
 // import { ActivitiesService } from '../../../../../../project/ws/app/src/lib/routes/activities/services/activities.service'
@@ -26,6 +26,7 @@ import { ChallengeModule } from '../challenge/challenge.module'
     ChallengeModule,
   ],
   entryComponents: [CardBrowseCourseComponent],
+  schemas: [NO_ERRORS_SCHEMA],
   // providers: [ActivitiesService],
 })
 export class CardBrowseCourseModule { }
