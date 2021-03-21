@@ -82,6 +82,10 @@ export class CarrierStripMultipleComponent extends WidgetBaseComponent
     }
   }
 
+  getLength(data: IStripUnitContentData) {
+    return data.widgets ? data.widgets.length : 0
+  }
+
   private initData() {
     this.stripsKeyOrder = this.widgetData.strips.map(strip => strip.key) || []
     if (this.widgetData.loader && this.widgetData.strips.length) {

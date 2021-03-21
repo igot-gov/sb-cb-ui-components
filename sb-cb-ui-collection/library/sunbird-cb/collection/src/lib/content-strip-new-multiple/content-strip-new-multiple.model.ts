@@ -41,6 +41,11 @@ export namespace NsContentStripNewMultiple {
     errorWidget?: NsWidgetResolver.IRenderConfigWithAnyData
     refreshEvent?: Record<'eventType' | 'from', string>
     fetchLikes?: boolean
+    viewMoreUrl?: {
+      queryParams: string
+      viewMoreText: string
+      path: string
+    }
   }
   export interface IStripRequestApi {
     path: string

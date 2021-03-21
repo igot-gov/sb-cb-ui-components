@@ -24,6 +24,8 @@ interface IStripUnitContentData {
   widgets?: NsWidgetResolver.IRenderConfigWithAnyData[]
   stripTitle: string
   stripName?: string
+  stripLogo?: string
+  description?: string
   stripInfo?: NsContentStripNewMultiple.IStripInfo
   noDataWidget?: NsWidgetResolver.IRenderConfigWithAnyData
   errorWidget?: NsWidgetResolver.IRenderConfigWithAnyData
@@ -71,7 +73,7 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
     private loggerSvc: LoggerService,
     private eventSvc: EventService,
     private configSvc: ConfigurationsService,
-    protected utilitySvc: UtilityService,
+    public utilitySvc: UtilityService,
     // private searchServSvc: SearchServService,
     private userSvc: WidgetUserService,
   ) {
@@ -90,6 +92,10 @@ export class ContentStripNewMultipleComponent extends WidgetBaseComponent
     if (this.changeEventSubscription) {
       this.changeEventSubscription.unsubscribe()
     }
+  }
+
+  getLength(data: IStripUnitContentData) {
+    return data.widgets ? data.widgets.length : 0
   }
 
   private initData() {

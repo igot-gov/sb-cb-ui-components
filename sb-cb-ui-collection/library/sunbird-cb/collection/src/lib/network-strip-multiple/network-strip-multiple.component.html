@@ -71,11 +71,19 @@
               [wsResolverWidget]="stripsResultDataMap[key]?.noDataWidget"></ng-container>
             <ng-container *ngIf="stripsResultDataMap[key]?.showOnError"
               [wsResolverWidget]="stripsResultDataMap[key]?.errorWidget"></ng-container>
-            <ws-utils-horizontal-scroller class="flex container-balanced new-width" [loadStatus]="'done'">
+            <!-- <ws-utils-horizontal-scroller class="flex container-balanced new-width" [loadStatus]="'done'">
               <ng-container *ngFor="let widget of stripsResultDataMap[key]?.widgets" [wsResolverWidget]="widget">
               </ng-container>
 
+            </ws-utils-horizontal-scroller> -->
+
+            <ws-utils-horizontal-scroller class="flex container-balanced new-width" *ngIf="getLength(stripsResultDataMap[key]) && showAccordion(key)"
+              [loadStatus]="'done'">
+              <ng-container *ngFor="let widget of stripsResultDataMap[key]?.widgets" [wsResolverWidget]="widget">
+                
+              </ng-container>
             </ws-utils-horizontal-scroller>
+            
           </div>
         </div>
       </a>

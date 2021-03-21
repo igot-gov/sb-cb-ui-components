@@ -41,7 +41,7 @@ export namespace NsPlaylist {
     sharedBy?: string
     sharedByDisplayName?: string
     sharedOn?: string
-    children?: string[]
+    children?: NsContent.IContentMinimal[]
     identifier: string
     versionKey: string
   }
