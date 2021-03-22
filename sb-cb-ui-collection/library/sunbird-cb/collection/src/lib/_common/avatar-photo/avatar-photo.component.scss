@@ -113,6 +113,28 @@
   }
 }
 
+.circle-l-s {
+  border-radius: 4px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    border-radius: 4px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .initials {
+    color: #ffffff;
+    font-size: $size-l;
+    line-height: $size-l;
+    letter-spacing: 0.2625px;
+  }
+}
+
 .circle-xl-s {
   border-radius: 4px;
   width: 152px;
