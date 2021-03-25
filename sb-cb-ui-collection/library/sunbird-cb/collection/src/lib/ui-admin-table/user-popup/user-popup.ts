@@ -8,7 +8,7 @@ export interface IDialogData {
   data: any
 }
 @Component({
-  selector: 'ws-auth-content-quality-popup',
+  selector: 'ws-widget-user-admin-popup',
   templateUrl: './user-popup.html',
   styleUrls: ['./user-popup.scss'],
 })
