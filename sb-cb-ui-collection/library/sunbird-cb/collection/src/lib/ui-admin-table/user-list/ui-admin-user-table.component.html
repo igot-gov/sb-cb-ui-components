@@ -81,7 +81,7 @@
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="getFinalColumns()"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: getFinalColumns();" (click)="selection.toggle(row); onRowClick(row)">
+            <mat-row *matRowDef="let row; columns: getFinalColumns();" (click)="selection.toggle(row);">
             </mat-row>
         </mat-table>
         <div class="no-information-found" *ngIf="dataSource.filteredData.length===0">No User information found
