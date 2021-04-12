@@ -38,7 +38,7 @@ export class CardCarrierHomeComponent extends WidgetBaseComponent implements OnI
     }
   }
   getCareer(discuss: any) {
-    this.router.navigate([`/app/careers/home/${discuss.tid}`])
+    this.router.navigate([`/app/careers/home/${discuss.tid}/${discuss.title}`])
   }
 
 }
