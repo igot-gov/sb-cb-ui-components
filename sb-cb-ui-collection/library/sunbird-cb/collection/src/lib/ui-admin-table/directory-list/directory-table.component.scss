@@ -14,6 +14,9 @@ $card-standard-width: 268px;
     @content;
   }
 }
+.mar-lft{
+  margin-left: 10px;
+}
 .card-minimal-container {
   position: relative;
 

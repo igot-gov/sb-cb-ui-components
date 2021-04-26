@@ -48,7 +48,7 @@
                                 [icon]="ac.icon" [disabled]="ac.disabled || false" [label]="ac.label"
                                 (click)="buttonClick(ac.name,row)"></ws-widget-app-button>
                         </div>
-                        <div *ngIf="!ac.optional">
+                        <div *ngIf="!ac.optional" class="mar-lft">
                             <ws-widget-app-button [type]="ac.type" [icon]="ac.icon" [label]="ac.label"
                                 [disabled]="ac.disabled || false" (click)="buttonClick(ac.name,row)">
                             </ws-widget-app-button>

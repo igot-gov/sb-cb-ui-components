@@ -30,8 +30,10 @@ import { BtnGoalsModule } from './btn-goals/btn-goals.module'
 import { BtnMailUserComponent } from './btn-mail-user/btn-mail-user.component'
 import { BtnMailUserModule } from './btn-mail-user/btn-mail-user.module'
 import { BtnPageBackComponent } from './btn-page-back/btn-page-back.component'
+import { BtnPageBackComponentAdmin } from './btn-page-back-admin/btn-page-back.component'
 import { BtnPageBackNavModule } from './btn-page-back-nav/btn-page-back-nav.module'
 import { BtnPageBackModule } from './btn-page-back/btn-page-back.module'
+import { BtnPageBackModuleAdmin } from './btn-page-back-admin/btn-page-back.module'
 import { BtnPlaylistComponent } from './btn-playlist/btn-playlist.component'
 import { BtnPlaylistModule } from './btn-playlist/btn-playlist.module'
 import { BtnPreviewComponent } from './btn-preview/btn-preview.component'
@@ -249,6 +251,7 @@ export const WIDGET_REGISTERED_MODULES = [
   LeftMenuModule,
   UIORGTableModule,
   BreadcrumbsOrgModule,
+  BtnPageBackModuleAdmin,
 ]
 
 export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] = [
@@ -316,6 +319,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetType: ROOT_WIDGET_CONFIG.actionButton._type,
     widgetSubType: ROOT_WIDGET_CONFIG.actionButton.pageBack,
     component: BtnPageBackComponent,
+  },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.actionButton._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.actionButton.pageBack,
+    component: BtnPageBackComponentAdmin,
   },
   {
     widgetType: ROOT_WIDGET_CONFIG.actionButton._type,

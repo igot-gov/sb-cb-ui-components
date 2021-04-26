@@ -40,7 +40,7 @@
 
             <ng-container matColumnDef="{{col.key}}" *ngFor="let col of tableData!.columns">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> {{col.displayName}} </mat-header-cell>
-                <mat-cell *matCellDef="let element" (click)="onRowClick(element)">
+                <mat-cell *matCellDef="let element" (click)="selection.toggle(element); onRowClick(element)">
                     <span *ngIf="col.isList" class="textclass"
                         [matTooltip]="(element[col.key]).split('<br />').join(', ')">
                         <div innerHTML="{{element[col.key]}}"></div>
@@ -70,7 +70,7 @@
             </ng-container>
             <ng-container matColumnDef="Menu">
                 <mat-header-cell *matHeaderCellDef class="clr-darkish-blue action-header">
-                    <mat-icon>view_comfy</mat-icon>
+                    Actions
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" class="action-cell">
                     <button type="button" mat-icon-button i18n-aria-label aria-label="action items"

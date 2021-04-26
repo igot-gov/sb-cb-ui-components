@@ -10,7 +10,11 @@ mat-expansion-panel {
     flex-grow: 0;
   }
 }
-
+.border-margin{
+  border-right: 1px  solid lightgray;
+  min-height: 600px;
+  min-width: 275px;
+}
 .ws-active-left-menu {
   background-color: #eee !important;
   font-weight: 700;
