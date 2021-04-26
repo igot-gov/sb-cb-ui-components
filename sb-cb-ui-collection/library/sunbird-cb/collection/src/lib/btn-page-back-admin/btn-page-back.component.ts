@@ -24,7 +24,7 @@ type TUrl = undefined | 'none' | 'back' | string
     ),
   ],
 })
-export class BtnPageBackComponentAdmin extends WidgetBaseComponent
+export class BtnPageBackAdminComponent extends WidgetBaseComponent
   implements OnInit, NsWidgetResolver.IWidgetData<{ url: TUrl }> {
   @Input() widgetData: { url: TUrl, titles?: NsWidgetResolver.ITitle[] } = { url: 'none', titles: [] }
   presentUrl = ''

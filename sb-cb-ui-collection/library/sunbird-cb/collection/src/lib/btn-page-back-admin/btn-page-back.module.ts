@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { MatButtonModule, MatCardModule, MatIconModule } from '@angular/material'
-import { BtnPageBackComponentAdmin } from './btn-page-back.component'
+import { BtnPageBackAdminComponent } from './btn-page-back.component'
 
 @NgModule({
-  declarations: [BtnPageBackComponentAdmin],
+  declarations: [BtnPageBackAdminComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -13,7 +13,7 @@ import { BtnPageBackComponentAdmin } from './btn-page-back.component'
     MatIconModule,
     MatCardModule,
   ],
-  exports: [BtnPageBackComponentAdmin],
-  entryComponents: [BtnPageBackComponentAdmin],
+  exports: [BtnPageBackAdminComponent],
+  entryComponents: [BtnPageBackAdminComponent],
 })
 export class BtnPageBackModuleAdmin { }
