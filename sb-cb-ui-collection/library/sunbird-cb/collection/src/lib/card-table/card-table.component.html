@@ -106,8 +106,8 @@
     <div class="flex flex-1 ws-mat-background-04 padding-m" mat-header-row>
       <span class="mat-body-2 ws-mat-black60-text">Course name</span>
       <span class="flex flex-1"></span>
-      <mat-icon *ngIf="widgetData.actionsMenu.headIcon" class="cursor-pointer" (click)="updatedisplay()">
-        {{display==='table' ? widgetData.actionsMenu.headIcon: 'list'}}</mat-icon>
+      <mat-icon *ngIf="widgetData?.actionsMenu?.headIcon" class="cursor-pointer" (click)="updatedisplay()">
+        {{display === 'table' ? widgetData?.actionsMenu?.headIcon: 'list'}}</mat-icon>
     </div>
     <mat-card-content>
       <div class="flex flex-wrap margin-xs">
@@ -141,7 +141,7 @@
                   </div>
                   <div class="flex flex-end">
                     <button mat-icon-button [matMenuTriggerFor]="moreMenu" [matMenuTriggerData]="{'data':cardData}">
-                      <mat-icon>{{widgetData.actionsMenu.rowIcon}}</mat-icon>
+                      <mat-icon>{{widgetData?.actionsMenu?.rowIcon}}</mat-icon>
                     </button>
                   </div>
                 </div>
@@ -156,7 +156,7 @@
                       {{ getRatingIcon(cardData,rating) }}
                     </mat-icon>
                   </div>
-                  <div *ngIf="!content?.averageRating" class="flex items-center my-1 rating mt-5">
+                  <div *ngIf="!cardData?.averageRating" class="flex items-center my-1 rating mt-5">
                     <span class="mr-2 rating-number"> 0.0 &nbsp;</span>
                     <mat-icon class="mr-2 star" *ngFor="let rating of [1, 2, 3, 4, 5]">
                       {{ getRatingIcon(cardData,rating) }}

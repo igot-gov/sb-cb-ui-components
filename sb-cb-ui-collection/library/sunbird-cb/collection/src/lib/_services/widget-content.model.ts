@@ -104,6 +104,7 @@ export namespace NsContent {
     ssoEnabled?: boolean
     status:
     | 'Draft'
+    | 'Review'
     | 'InReview'
     | 'QualityReview'
     | 'Reviewed'

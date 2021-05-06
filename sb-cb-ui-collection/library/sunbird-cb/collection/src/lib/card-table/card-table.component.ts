@@ -14,11 +14,11 @@ import {
   ViewChild,
 } from '@angular/core'
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material'
-import { NsWidgetResolver, WidgetBaseComponent } from '@ws-widget/resolver'
+import { NsWidgetResolver, WidgetBaseComponent } from '@sunbird-cb/resolver'
 import { IColums, ITable } from './card-table.model'
 /* tslint:disable */
 import _ from 'lodash'
-import { NSContent } from '../../../../../../project/ws/author/src/lib/interface/content'
+import { NsContent } from '../_services/widget-content.model';
 /* tslint:enable */
 @Component({
   selector: 'ws-widget-table-card-content',
@@ -231,9 +231,9 @@ export class CardTableComponent extends WidgetBaseComponent
     }
   }
   hasAccess(
-    meta: NSContent.IContentMeta,
+    meta: NsContent.IContent,
     forPreview = false,
-    parentMeta?: NSContent.IContentMeta,
+    parentMeta?: NsContent.IContent,
   ): boolean {
     if (this.hasRole(['editor', 'admin'])) {
       return true
@@ -241,7 +241,7 @@ export class CardTableComponent extends WidgetBaseComponent
     let returnValue = false
     if (['Draft', 'Live'].indexOf(meta.status) > -1) {
       if (meta.creatorIDs && meta.creatorIDs.length) {
-        meta.creatorIDs.forEach(v => {
+        meta.creatorIDs.forEach((v: any) => {
           if (v === this.userId) {
             returnValue = true
           }
@@ -255,8 +255,8 @@ export class CardTableComponent extends WidgetBaseComponent
         }
       }
       if (!returnValue && parentMeta && parentMeta.creatorIDs && meta.creatorIDs) {
-        returnValue = parentMeta.creatorIDs.some(v =>
-          meta.creatorIDs.find(cv => cv === v),
+        returnValue = parentMeta.creatorIDs.some((v: any) =>
+          meta.creatorIDs.find((cv: any) => cv === v),
         )
       }
     }
@@ -267,8 +267,8 @@ export class CardTableComponent extends WidgetBaseComponent
         }
       }
       if (!returnValue && parentMeta && parentMeta.creatorIDs && meta.creatorIDs) {
-        returnValue = parentMeta.creatorIDs.some(v =>
-          meta.creatorIDs.find(cv => cv === v),
+        returnValue = parentMeta.creatorIDs.some((v: any) =>
+          meta.creatorIDs.find((cv: any) => cv === v),
         )
       }
     }

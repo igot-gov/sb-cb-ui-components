@@ -1,6 +1,9 @@
 // Widget Modules
 export * from './lib/btn-apps/btn-apps.model'
 // modules
+export * from './lib/at-glance/at-glance.module'
+export * from './lib/at-glance/at-glance.model'
+export * from './lib/at-glance/at-glance.component'
 export * from './lib/_common/avatar-photo/avatar-photo.module'
 // ck editor Services: Start
 // export * from './lib/_common/ck-editor/ck-editor.module'
@@ -20,6 +23,7 @@ export * from './lib/_common/avatar-photo/avatar-photo.module'
 // export * from './lib/_common/ck-editor/services/loader.service'
 // export * from './lib/_common/ck-editor/services/upload.service'
 // ck editor Services : END
+
 export * from './lib/btn-apps/btn-apps.module'
 export * from './lib/btn-call/btn-call.module'
 export * from './lib/btn-catalog/btn-catalog.module'
@@ -81,7 +85,7 @@ export * from './lib/card-hubs-list/card-hubs-list.module'
 export * from './lib/card-home-top/card-home-top.module'
 export * from './lib/card-activity/card-activity.module'
 export * from './lib/card-table/card-table.model'
-export * from './lib/card-table/card-table.model'
+export * from './lib/card-table/card-table.module'
 export * from './lib/activity-card/activity-card.module'
 export * from './lib/card-browse-course/card-browse-course.module'
 export * from './lib/channel-hub/channel-hub.module'
@@ -203,7 +207,9 @@ export * from './lib/scrollspy-left-menu/scrollspy-left-menu.module'
 export * from './lib/btn-feature/btn-feature.module'
 
 export * from './lib/ui-admin-table/ui-admin-table.module'
-export * from './lib/ui-admin-table/interface/interfaces'
+/* tslint:disable */
+// export * from './lib/ui-admin-table/interface/interfaces'
+/* tslint:enable */
 export * from './lib/ui-org-table/ui-org-table.module'
 
 // discussion forum

@@ -5,9 +5,7 @@ import {
   HorizontalScrollerModule,
   PipeCountTransformModule,
   PipeDurationTransformModule,
-  PipeNicRelativeModule,
-} from '@ws-widget/utils'
-import { WidgetResolverModule } from '@ws-widget/resolver'
+} from '@sunbird-cb/utils'
 import { PipeTableListModule } from './pipe-table-list/pipe-table-list.module'
 import {
   MatButtonModule,
@@ -22,6 +20,7 @@ import {
 import { RouterModule } from '@angular/router'
 import { PipeTableMetaModule } from './pipe-table-meta/pipe-table-meta.module'
 import { PipeRelativePathTableModule } from './relative-url/relative-url.module'
+import { WidgetResolverModule } from '@sunbird-cb/resolver'
 @NgModule({
   declarations: [CardTableComponent],
   imports: [
@@ -42,7 +41,7 @@ import { PipeRelativePathTableModule } from './relative-url/relative-url.module'
     PipeCountTransformModule,
     PipeTableMetaModule,
     PipeRelativePathTableModule,
-    PipeNicRelativeModule,
+    // PipeNicRelativeModule,
   ],
   exports: [
     CardTableComponent,
