@@ -152,6 +152,8 @@ import { CardCourseComponent } from './card-course/card-course.component'
 import { CardCourseModule } from './card-course/card-course.module'
 import { CardCarrierHomeComponent } from './card-carrier-home/card-carrier-home.component'
 import { CardCarrierHomeModule } from './card-carrier-home/card-carrier-home.module'
+import { CardTableModule } from './card-table/card-table.module'
+import { CardTableComponent } from './card-table/card-table.component'
 import { CarrierStripMultipleComponent } from './carrier-strip-multiple/carrier-strip-multiple.component'
 import { DiscussStripMultipleComponent } from './discuss-strip-multiple/discuss-strip-multiple.component'
 import { DiscussStripMultipleModule } from './discuss-strip-multiple/discuss-strip-multiple.module'
@@ -199,6 +201,7 @@ export const WIDGET_REGISTERED_MODULES = [
   CardHomeTopModule,
   CardBrowseCourseModule,
   CardHomeDiscussModule,
+  CardTableModule,
   ContentStripMultipleModule,
   ContentStripNewMultipleModule,
   ContentStripSingleModule,
@@ -360,6 +363,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetType: ROOT_WIDGET_CONFIG.card._type,
     widgetSubType: ROOT_WIDGET_CONFIG.card.content,
     component: CardContentComponent,
+  },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.card._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.table.cardTable,
+    component: CardTableComponent,
   },
   {
     widgetType: ROOT_WIDGET_CONFIG.card._type,

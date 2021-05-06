@@ -150,4 +150,8 @@ export const ROOT_WIDGET_CONFIG = {
     _type: 'menus',
     leftMenu: 'leftMenu',
   },
+  table: {
+    _type: 'table',
+    cardTable: 'cardTable',
+  },
 }
