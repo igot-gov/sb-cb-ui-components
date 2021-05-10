@@ -1,5 +1,5 @@
 <mat-card class="flex flex-wrap flex-column at-glance ws-mat-accent-border" tabindex="0">
-  <div class="flex flex-center cursor-pointer preview-div" *ngIf="widgetData">
+  <div class="flex flex-center cursor-pointer preview-div" *ngIf="widgetData && getPreviewLink">
     <a class="preview mat-subheading-2 margin-0 ws-mat-primary-background flex-1" *ngIf="!this.widgetData.customLink"
       [routerLink]="getPreviewLink">
       <span class="text-white m-auto"> {{ widgetData.buttonName ? widgetData.buttonName :'Preview CBP'}}</span>
@@ -9,6 +9,11 @@
       <span class="text-white m-auto"> {{ widgetData.buttonName ? widgetData.buttonName :'Start now'}}
       </span>
     </a>
+  </div>
+  <div class="flex flex-center preview-div" *ngIf="!widgetData || !getPreviewLink">
+    <span class="text-white preview mat-subheading-2 margin-0 ws-mat-primary-background flex-1">
+      You are previewing CBP
+    </span>
   </div>
   <span class="mat-subheading-1 margin-top-s">{{widgetData.displayName}}</span>
   <div class="flex flex-1 flex-column" *ngIf="widgetData">

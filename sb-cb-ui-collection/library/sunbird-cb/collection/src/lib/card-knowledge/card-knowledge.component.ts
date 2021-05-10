@@ -20,7 +20,7 @@ export class CardKnowledgeComponent implements OnInit, OnDestroy {
   @Output() followed = new EventEmitter<string>()
   @Output() unFollowed = new EventEmitter<string>()
 
-  defaultThumbnail = ''
+  defaultThumbnail: string | undefined = ''
   prefChangeSubscription: Subscription | null = null
   isIntranetAllowedSettings = false
   constructor(private events: EventService, private configSvc: ConfigurationsService, private utilitySvc: UtilityService) {

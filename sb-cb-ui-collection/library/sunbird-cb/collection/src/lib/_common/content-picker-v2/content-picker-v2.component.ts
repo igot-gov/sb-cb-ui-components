@@ -32,7 +32,7 @@ export class ContentPickerV2Component implements OnInit, OnDestroy {
   triggerSearchSubscription: Subscription | null = null
   searchReq: NSSearch.ISearchV6Request
   searchResults!: NSSearch.ISearchV6ApiResult
-  defaultThumbnail = ''
+  defaultThumbnail: string | undefined = ''
   fetchStatus: 'none' | 'fetching' | 'done' | 'error'
   searchConfig: any = null
   objKey = Object.keys

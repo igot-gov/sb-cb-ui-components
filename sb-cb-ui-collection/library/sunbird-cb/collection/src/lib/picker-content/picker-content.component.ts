@@ -62,7 +62,7 @@ export class PickerContentComponent extends WidgetBaseComponent
   debounceSubject = new BehaviorSubject<boolean>(false)
   debounceSubscription: Subscription | null = null
 
-  defaultThumbnail = ''
+  defaultThumbnail: string | undefined = ''
   @Input() searchableContentTypes = NsContent.PLAYLIST_SUPPORTED_CONTENT_TYPES
   @Input() appContentTypes = NsContent.EContentTypes
   preSelected = new Set()

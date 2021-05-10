@@ -171,9 +171,12 @@ import { LeftMenuComponent } from './left-menu/left-menu.component'
 import { UIORGTableModule } from './ui-org-table/ui-org-table.module'
 
 import { BreadcrumbsOrgModule } from './breadcrumbs-org/breadcrumbs-org.module'
+import { AuthorCardModule } from './author-card/author-card.module'
+import { AuthorCardComponent } from './author-card/author-card.component'
 
 export const WIDGET_REGISTERED_MODULES = [
   AvatarPhotoModule,
+  AuthorCardModule,
   AtGlanceModule,
   BtnAppsModule,
   BtnCallModule,
@@ -265,6 +268,11 @@ export const WIDGET_REGISTRATION_CONFIG: NsWidgetResolver.IRegistrationConfig[] 
     widgetType: ROOT_WIDGET_CONFIG.atGlance._type,
     widgetSubType: ROOT_WIDGET_CONFIG.atGlance.default,
     component: AtGlanceComponent,
+  },
+  {
+    widgetType: ROOT_WIDGET_CONFIG.authorCard._type,
+    widgetSubType: ROOT_WIDGET_CONFIG.authorCard.default,
+    component: AuthorCardComponent,
   },
   {
     widgetType: ROOT_WIDGET_CONFIG.actionButton._type,

@@ -18,8 +18,8 @@ export class CardContentComponent extends WidgetBaseComponent
   @Input() widgetData!: NsCardContent.ICard
   @HostBinding('id')
   public id = `ws-card_${Math.random()}`
-  defaultThumbnail = ''
-  defaultSLogo = ''
+  defaultThumbnail: string | undefined = ''
+  defaultSLogo: string | undefined = ''
   showFlip = false
   isCardFlipped = false
   showIsMode = false

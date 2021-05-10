@@ -26,7 +26,7 @@
     "@angular/router": "~8.2.1",
     "@sunbird-cb/design-system": "0.0.1",
     "@sunbird-cb/resolver": "^0.0.3",
-    "@sunbird-cb/utils": "^0.0.3",
+    "@sunbird-cb/utils": "^0.0.11",
     "@types/lodash": "^4.14.161",
     "chart.js": "^2.9.4",
     "hammerjs": "^2.0.8",
