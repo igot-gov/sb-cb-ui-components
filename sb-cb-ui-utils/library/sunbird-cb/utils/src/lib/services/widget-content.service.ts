@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable, of } from 'rxjs'
 import { catchError, retry } from 'rxjs/operators'
+import { IContentRating } from '../models/contentRating.model'
 import { ConfigurationsService } from './configurations.service'
 import { NsContentStripMultiple } from './content-strip-multiple.model'
 import { NsContent } from './widget-content.model'
@@ -25,6 +26,7 @@ const API_END_POINTS = {
   CONTENT_HISTORY: `${PROTECTED_SLAG_V8}/user/history`,
   USER_CONTINUE_LEARNING: `${PROTECTED_SLAG_V8}/user/history/continue`,
   CONTENT_RATING: `${PROTECTED_SLAG_V8}/user/rating`,
+  CONTENT_RATING_V2: `${PROTECTED_SLAG_V8}/user/rating/content/average-ratingInfo`,
   COLLECTION_HIERARCHY: (type: string, id: string) =>
     `${PROTECTED_SLAG_V8}/content/collection/${type}/${id}`,
   REGISTRATION_STATUS: `${PROTECTED_SLAG_V8}/admin/userRegistration/checkUserRegistrationContent`,
@@ -82,6 +84,11 @@ export class WidgetContentService {
     return this.http
       .post(`${API_END_POINTS.CONTENT_RATING}/rating`, contentIds)
       .toPromise()
+  }
+
+  fetchContentRatingsV2(contentId: string) {
+    return this.http
+      .get<IContentRating>(`${API_END_POINTS.CONTENT_RATING_V2}/${contentId}`)
   }
 
   fetchContentHistory(contentId: string): Observable<NsContent.IContinueLearningData> {
