@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NsWidgetResolver, WidgetBaseComponent } from '@sunbird-cb/resolver'
 import { ILeftMenu, IMenu } from './left-menu.model'
-
+import { defaultImg } from './base64.json'
 @Component({
   selector: 'ws-widget-left-menu',
   templateUrl: './left-menu.component.html',
@@ -22,9 +22,17 @@ export class LeftMenuComponent extends WidgetBaseComponent
   ngOnInit(): void {
 
   }
-
+  get defaultImage() {
+    // tslint:disable
+    console.log('defaultImage')
+    // tslint:enable
+    return defaultImg
+  }
   changeToDefaultImg($event: any) {
-    $event.target.src = '/assets/instances/eagle/app_logos/default.png'
+    // tslint:disable
+    console.log('changeToDefaultImg')
+    // tslint:enable
+    $event.target.src = defaultImg
   }
   public isLinkActive(url?: string, index?: number): boolean {
     let returnVal = false

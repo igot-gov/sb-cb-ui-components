@@ -36,6 +36,9 @@ export class BtnProfileComponent extends WidgetBaseComponent
   private pinnedAppsSubs?: Subscription
   givenName = 'Guest'
   profileImage!: string | null
+  disableViewProfile = false
+  disableAllFeatures = false
+  disableSettings = false
   constructor(
     private configSvc: ConfigurationsService,
     private dialog: MatDialog
@@ -53,10 +56,25 @@ export class BtnProfileComponent extends WidgetBaseComponent
   }
 
   ngOnInit() {
+    // tslint:disable
+    console.log(this.widgetData)
+    // tslint:enable
     this.setPinnedApps()
-    if (this.widgetData && this.widgetData.actionBtnId) {
-      this.id = this.widgetData.actionBtnId
+    if (this.widgetData) {
+      if (this.widgetData.actionBtnId) {
+        this.id = this.widgetData.actionBtnId
+      }
+      if (this.widgetData.disableViewProfile) {
+        this.disableViewProfile = this.widgetData.disableViewProfile
+      }
+      if (this.widgetData.disableSettings) {
+        this.disableSettings = this.widgetData.disableSettings
+      }
+      if (this.widgetData.disableAllFeatures) {
+        this.disableAllFeatures = this.widgetData.disableAllFeatures
+      }
     }
+
   }
 
   ngOnDestroy() {

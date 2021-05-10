@@ -42,16 +42,16 @@
       <ng-container *ngFor="let pinnedWidget of pinnedApps" [wsResolverWidget]="pinnedWidget"></ng-container>
     </div>
   </section>
-  <a mat-menu-item role="link" routerLink="/app/person-profile/me" class="all-features">
+  <a *ngIf="!disableViewProfile" mat-menu-item role="link" routerLink="/app/person-profile/me" class="all-features">
     <mat-icon>account_circle</mat-icon>
     <span i18n role="link">Profile</span>
   </a>
-  <a mat-menu-item role="link" routerLink="/app/profile/settings" class="all-features">
+  <a *ngIf="!disableSettings" mat-menu-item role="link" routerLink="/app/profile/settings" class="all-features">
     <mat-icon>settings</mat-icon>
     <span i18n>Settings</span>
   </a>
 
-  <a mat-menu-item role="link" routerLink="/app/features" class="all-features flex-wrap">
+  <a *ngIf="!disableAllFeatures" mat-menu-item role="link" routerLink="/app/features" class="all-features flex-wrap">
     <mat-icon>apps</mat-icon>
     <span i18n>Explore all features</span>
   </a>

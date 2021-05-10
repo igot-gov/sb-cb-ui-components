@@ -1,6 +1,6 @@
 {
   "name": "sb-cb-ui-collection",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "scripts": {
     "ng": "ng",
     "prebuild": "npm run lint:fix",
