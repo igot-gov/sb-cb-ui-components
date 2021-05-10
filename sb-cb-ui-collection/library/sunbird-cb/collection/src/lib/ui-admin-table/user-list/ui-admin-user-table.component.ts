@@ -21,7 +21,7 @@ import { CreateMDOService } from '../create-mdo.services'
 export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() tableData!: ITableData | undefined
   @Input() data?: []
-  @Input() needCreateUser?: boolean
+  @Input() needCreateUser?: boolean = undefined
   @Input() needAddAdmin?: boolean
   @Input() isUpload?: boolean
   @Input() isCreate?: boolean
@@ -42,8 +42,11 @@ export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChang
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator
   @ViewChild(MatSort, { static: true }) sort?: MatSort
   selection = new SelectionModel<any>(true, [])
-  constructor(private router: Router, public dialog: MatDialog, private activatedRoute: ActivatedRoute,
-              private createMDOService: CreateMDOService, private snackBar: MatSnackBar) {
+  constructor(
+    private router: Router, public dialog: MatDialog,
+    private activatedRoute: ActivatedRoute,
+    private createMDOService: CreateMDOService,
+    private snackBar: MatSnackBar) {
     this.dataSource = new MatTableDataSource<any>()
     this.actionsClick = new EventEmitter()
     this.clicked = new EventEmitter()
@@ -62,7 +65,7 @@ export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChang
     this.activatedRoute.params.subscribe(params => {
       this.departmentRole = params['currentDept']
       this.departmentId = params['roleId']
-      if (this.departmentRole && this.departmentId) {
+      if (this.needCreateUser !== false && this.departmentRole && this.departmentId) {
         this.needAddAdmin = true
         this.needCreateUser = true
       }
@@ -136,9 +139,11 @@ export class UIAdminUserTableComponent implements OnInit, AfterViewInit, OnChang
               this.snackBar.open('Admin assigned Successfully')
               this.router.navigate(['/app/home/directory', { department: this.departmentRole }])
             }
-          },                                                                                            (err: { error: any }) => {
-            this.openSnackbar(err.error.message)
-          })
+          },
+            // tslint:disable-next-line: align
+            (err: { error: any }) => {
+              this.openSnackbar(err.error.message)
+            })
         }
       })
 
