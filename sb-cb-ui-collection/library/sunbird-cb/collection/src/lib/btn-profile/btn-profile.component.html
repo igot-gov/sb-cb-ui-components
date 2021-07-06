@@ -42,7 +42,7 @@
       <ng-container *ngFor="let pinnedWidget of pinnedApps" [wsResolverWidget]="pinnedWidget"></ng-container>
     </div>
   </section>
-  <a *ngIf="!disableViewProfile" mat-menu-item role="link" routerLink="/app/person-profile/me" class="all-features">
+  <!-- <a *ngIf="!disableViewProfile" mat-menu-item role="link" routerLink="/app/person-profile/me" class="all-features">
     <mat-icon>account_circle</mat-icon>
     <span i18n role="link">Profile</span>
   </a>
@@ -54,7 +54,7 @@
   <a *ngIf="!disableAllFeatures" mat-menu-item role="link" routerLink="/app/features" class="all-features flex-wrap">
     <mat-icon>apps</mat-icon>
     <span i18n>Explore all features</span>
-  </a>
+  </a> -->
 
   <a href="javascript:void(0)" mat-menu-item role="link" (click)="logout()" class="log-o">
     <mat-icon>power_settings_new</mat-icon>&nbsp;
