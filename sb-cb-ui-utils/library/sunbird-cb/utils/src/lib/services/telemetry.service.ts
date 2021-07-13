@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { filter } from 'rxjs/operators'
-import { AuthKeycloakService } from './auth-keycloak.service'
+// import { AuthKeycloakService } from './auth-keycloak.service'
 import { NsInstanceConfig } from './configurations.model'
 import { ConfigurationsService } from './configurations.service'
 import { WsEvents } from './event.model'
@@ -23,7 +23,7 @@ export class TelemetryService {
   constructor(
     private configSvc: ConfigurationsService,
     private eventsSvc: EventService,
-    private authSvc: AuthKeycloakService,
+    // private authSvc: AuthKeycloakService,
     private logger: LoggerService,
   ) {
     const instanceConfig = this.configSvc.instanceConfig
@@ -36,7 +36,7 @@ export class TelemetryService {
           pid: navigator.userAgent,
         },
         uid: this.configSvc.userProfile && this.configSvc.userProfile.userId,
-        authtoken: this.authSvc.token,
+        // authtoken: this.authSvc.token,
       }
       this.pData = this.telemetryConfig.pdata
       this.addPlayerListener()
@@ -50,10 +50,10 @@ export class TelemetryService {
   start(type: string, mode: string, id: string) {
     if (this.telemetryConfig) {
       $t.start(this.telemetryConfig, id, '1.0', {
-        // id,
+        id,
         type,
         mode,
-        pageid: id,
+        stageid: '',
       })
     } else {
       this.logger.error('Error Initializing Telemetry. Config missing.')
@@ -65,7 +65,7 @@ export class TelemetryService {
       {
         type,
         mode,
-        pageid: id,
+        contentId: id,
       },
       {
         context: {
@@ -83,10 +83,7 @@ export class TelemetryService {
       {
         type,
         props,
-        // data,
-        state: data, // Optional. Current State
-        prevstate: '', // Optional. Previous State
-        duration: '', // Optional.
+        data,
       },
       {
         context: {
@@ -99,21 +96,16 @@ export class TelemetryService {
     )
   }
 
-  heartbeat(type: string, id: string) {
+  heartbeat(type: string, mode: string, id: string) {
     $t.heartbeat({
       id,
-      // mode,
+      mode,
       type,
     })
   }
 
   impression() {
     const page = this.getPageDetails()
-    const edata = {
-      pageid: page.pageid, // Required. Unique page id
-      type: page.pageUrlParts[0], // Required. Impression type (list, detail, view, edit, workflow, search)
-      uri: page.pageUrl,
-    }
     if (page.objectId) {
       const config = {
         context: {
@@ -126,9 +118,9 @@ export class TelemetryService {
           id: page.objectId,
         },
       }
-      $t.impression(edata, config)
+      $t.impression(page, config)
     } else {
-      $t.impression(edata, {
+      $t.impression(page, {
         context: {
           pdata: {
             ...this.pData,
@@ -217,7 +209,7 @@ export class TelemetryService {
           this.start(
             event.data.type || WsEvents.WsTimeSpentType.Player,
             event.data.mode || WsEvents.WsTimeSpentMode.Play,
-            event.data.id,
+            event.data.identifier,
           )
         }
         if (
@@ -229,7 +221,7 @@ export class TelemetryService {
           this.end(
             event.data.type || WsEvents.WsTimeSpentType.Player,
             event.data.mode || WsEvents.WsTimeSpentMode.Play,
-            event.data.id,
+            event.data.identifier,
           )
         }
       })
@@ -259,18 +251,13 @@ export class TelemetryService {
           }
           $t.interact(event.data, externalConfig)
         } else {
-          let interactid
-          if (event.data.type === 'goal') {
-            interactid = page.pageUrlParts[4]
-          }
           $t.interact(
             {
               type: event.data.type,
               subtype: event.data.subType,
-              // object: event.data.object,
-              id: event.data.object.contentId || interactid || '',
+              object: event.data.object,
               pageid: page.pageid,
-              // target: { page },
+              target: { page },
             },
             {
               context: {
@@ -309,7 +296,7 @@ export class TelemetryService {
           $t.heartbeat(
             {
               type: event.data.type,
-              // subtype: event.data.eventSubType,
+              subtype: event.data.eventSubType,
               id: event.data.id,
               // mimeType: event.data.mimeType,
               // mode: event.data.mode,
