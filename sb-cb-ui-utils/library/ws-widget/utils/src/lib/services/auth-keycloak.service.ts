@@ -138,14 +138,14 @@ export class AuthKeycloakService {
     })
   }
 
-  async logout(redirectUrl = this.defaultRedirectUrl) {
-    storage.removeItem(storageKey)
+  async logout(_redirectUrl = this.defaultRedirectUrl) {
+    // storage.removeItem(storageKey)
     await this.http.get('/apis/reset').toPromise()
-    if (this.msAuthSvc.isLogoutRequired) {
-      this.keycloakSvc.logout(this.msAuthSvc.logoutUrl(redirectUrl))
-    } else {
-      this.keycloakSvc.logout(redirectUrl)
-    }
+    // if (this.msAuthSvc.isLogoutRequired) {
+    //   this.keycloakSvc.logout(this.msAuthSvc.logoutUrl(redirectUrl))
+    // } else {
+    //   this.keycloakSvc.logout(redirectUrl)
+    // }
   }
 
   private addKeycloakEventListener() {
