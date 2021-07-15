@@ -139,7 +139,7 @@ export class AuthKeycloakService {
   }
 
   async logout(_redirectUrl = this.defaultRedirectUrl) {
-    window.location.href = _redirectUrl + 'apis/reset'
+    window.location.href = `${_redirectUrl}apis/reset`
 
     // storage.removeItem(storageKey)
     // await this.http.get('/apis/reset').toPromise()
