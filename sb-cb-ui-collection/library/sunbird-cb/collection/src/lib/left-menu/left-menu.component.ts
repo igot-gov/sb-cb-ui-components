@@ -24,13 +24,13 @@ export class LeftMenuComponent extends WidgetBaseComponent
   }
   get defaultImage() {
     // tslint:disable
-    console.log('defaultImage')
+    // console.log('defaultImage')
     // tslint:enable
     return defaultImg
   }
   changeToDefaultImg($event: any) {
     // tslint:disable
-    console.log('changeToDefaultImg')
+    // console.log('changeToDefaultImg')
     // tslint:enable
     $event.target.src = defaultImg
   }
