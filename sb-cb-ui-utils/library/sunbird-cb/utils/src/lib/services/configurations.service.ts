@@ -51,6 +51,7 @@ export class ConfigurationsService {
   unMappedUser: any
   isAuthenticated = false
   isNewUser = false
+  isActive = true
 
   // pinnedApps
   pinnedApps = new BehaviorSubject<Set<string>>(new Set())
