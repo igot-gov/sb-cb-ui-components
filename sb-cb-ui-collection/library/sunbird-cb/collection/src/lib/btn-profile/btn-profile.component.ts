@@ -57,7 +57,7 @@ export class BtnProfileComponent extends WidgetBaseComponent
 
   ngOnInit() {
     // tslint:disable
-    console.log(this.widgetData)
+    // console.log(this.widgetData)
     // tslint:enable
     this.setPinnedApps()
     if (this.widgetData) {

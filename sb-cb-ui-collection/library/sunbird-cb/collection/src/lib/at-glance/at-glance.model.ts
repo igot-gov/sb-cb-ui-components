@@ -9,6 +9,9 @@ export namespace IAtGlanceComponentData {
     contentId: string,
     counts: ICounts
     customLink?: string
+    competencies?: any,
+    viewContentLink?: any,
+    userRole?: any,
   }
 
   export interface ICounts {

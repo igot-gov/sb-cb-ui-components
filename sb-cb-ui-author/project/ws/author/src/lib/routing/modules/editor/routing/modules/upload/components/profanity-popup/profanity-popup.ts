@@ -39,7 +39,7 @@ export class ProfanityPopUpComponent implements OnInit {
 
   ngOnInit(): void {
     // tslint:disable-next-line:no-console
-    console.log(this.data)
+    // console.log(this.data)
     this.profanityData = this.data
     // if (this.profanityData.profanityClassifications != null && this.profanityData.profanityClassifications !== undefined) {
     //   this.offensiveValue = Object.values(this.profanityData.profanityClassifications)
