@@ -106,7 +106,7 @@ export class BtnProfileComponent extends WidgetBaseComponent
     // console.log(this.widgetData)
     // tslint:enable
     this.setPinnedApps()
-    this.getPortalLinks() 
+    this.getPortalLinks()
     if (this.widgetData) {
       if (this.widgetData.actionBtnId) {
         this.id = this.widgetData.actionBtnId
@@ -159,7 +159,7 @@ export class BtnProfileComponent extends WidgetBaseComponent
 
   getPortalLinks() {
     this.featuresConfig.forEach((feature: any) => {
-      console.log(feature)
+      // console.log(feature)
       if (feature.id === 'portal_admin' && feature.featureWidgets.length > 0) {
         feature.featureWidgets.forEach((fw: any) => {
           this.portalLinks.push(fw)
@@ -170,6 +170,6 @@ export class BtnProfileComponent extends WidgetBaseComponent
         })
       }
     })
-    console.log(this.portalLinks)
+    // console.log(this.portalLinks)
   }
 }
