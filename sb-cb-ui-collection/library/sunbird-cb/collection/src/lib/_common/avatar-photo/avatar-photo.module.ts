@@ -17,6 +17,6 @@ import { AvatarPhotoComponent } from './avatar-photo.component'
     WidgetResolverModule,
   ],
   exports: [AvatarPhotoComponent],
-  entryComponents: [AvatarPhotoComponent],
+  entryComponents: [AvatarPhotoComponent]
 })
 export class AvatarPhotoModule { }

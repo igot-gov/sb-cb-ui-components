@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { WidgetContentService, ConfigurationsService } from '@sunbird-cb/utils'
+import { ConfigurationsService } from '@sunbird-cb/utils'
 import { IContentRating } from './contentRating.model'
 
 @Component({
@@ -17,22 +17,22 @@ export class UserContentDetailedRatingComponent implements OnInit {
 
   constructor(
     // private events: EventService,
-    private contentSvc: WidgetContentService,
+    // private contentSvc: WidgetContentService,
     private configSvc: ConfigurationsService,
   ) { }
 
   ngOnInit() {
-    if (!this.forPreview) {
-      this.contentSvc.fetchContentRatingsV2(this.contentId).subscribe(
-        result => {
-          this.isRequesting = false
-          this.userRating = result
-        },
-        _err => {
-          this.isRequesting = false
-        },
-      )
-    }
+    // if (!this.forPreview) {
+    //   this.contentSvc.fetchContentRatingsV2(this.contentId).subscribe(
+    //     result => {
+    //       this.isRequesting = false
+    //       this.userRating = result
+    //     },
+    //     _err => {
+    //       this.isRequesting = false
+    //     },
+    //   )
+    // }
   }
 
   // addRating(index: number) {
