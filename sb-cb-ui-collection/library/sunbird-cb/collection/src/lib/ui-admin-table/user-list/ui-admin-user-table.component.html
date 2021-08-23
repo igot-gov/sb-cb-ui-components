@@ -23,7 +23,7 @@
             <button mat-raised-button type="button" *ngIf="needCreateUser"
                 class="text-white ws-mat-primary-background text-white margin-right-l custom-btn"
                 (click)="gotoCreateUser()">
-                <b class="text-white" i18n>Create User</b>
+                <b class="text-white" i18n>Create user</b>
             </button>
             <button mat-raised-button type="button" *ngIf="needAddAdmin"
                 class="text-white ws-mat-primary-background text-white margin-right-m custom-btn" (click)="openPopup()">
@@ -84,7 +84,7 @@
             <mat-row *matRowDef="let row; columns: getFinalColumns();" (click)="selection.toggle(row);">
             </mat-row>
         </mat-table>
-        <div class="no-information-found" *ngIf="dataSource.filteredData.length===0">No User information found
+        <div class="no-information-found" *ngIf="dataSource.filteredData.length===0">No user information found
         </div>
     </div>
 
