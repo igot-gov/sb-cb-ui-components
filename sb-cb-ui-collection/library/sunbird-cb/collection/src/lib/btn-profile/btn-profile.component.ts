@@ -72,7 +72,6 @@ export class BtnProfileComponent extends WidgetBaseComponent
         //   availGroups.push(group)
         // }
       })
-      console.log(availGroups)
       this.featuresConfig = availGroups.map(
         (group: NsAppsConfig.IGroup): IGroupWithFeatureWidgets => (
           {
