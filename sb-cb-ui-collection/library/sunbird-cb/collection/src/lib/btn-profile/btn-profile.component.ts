@@ -25,8 +25,7 @@ export class BtnProfileComponent extends WidgetBaseComponent
   private readonly featuresConfig: IGroupWithFeatureWidgets[] = []
   @HostBinding('class')
   public class = 'profile-link'
-
-  sizeM = 'm'
+  userRoles: Set<string> | null = null
   basicBtnAppsConfig: NsWidgetResolver.IRenderConfigWithTypedData<IBtnAppsConfig> = {
     widgetType: 'actionButton',
     widgetSubType: 'actionButtonApps',
@@ -62,15 +61,13 @@ export class BtnProfileComponent extends WidgetBaseComponent
         this.profileImage = localStorage.getItem(this.configSvc.userProfile.userId)
       }
     }
-    console.log(this.configSvc.appsConfig)
     if (this.configSvc.appsConfig) {
       const appsConfig = this.configSvc.appsConfig
       const availGroups: NsAppsConfig.IGroup[] = []
       appsConfig.groups.forEach((group: any) => {
-        availGroups.push(group)
-        // if (group.hasRole.length === 0 || this.accessService.hasRole(group.hasRole)) {
-        //   availGroups.push(group)
-        // }
+        if (group.hasRole.length === 0 || this.checkhasRole(group.hasRole)) {
+          availGroups.push(group)
+        }
       })
       this.featuresConfig = availGroups.map(
         (group: NsAppsConfig.IGroup): IGroupWithFeatureWidgets => (
@@ -78,6 +75,8 @@ export class BtnProfileComponent extends WidgetBaseComponent
             ...group,
             featureWidgets: _.compact(group.featureIds.map(
               (id: string): NsWidgetResolver.IRenderConfigWithTypedData<NsPage.INavLink> | undefined => {
+                const permissions = _.get(appsConfig, `features[${id}].permission`)
+                if (!permissions || permissions.length === 0 || this.checkhasRole(permissions) ) {
               return ({
                     widgetType: ROOT_WIDGET_CONFIG.actionButton._type,
                     widgetSubType: ROOT_WIDGET_CONFIG.actionButton.feature,
@@ -91,21 +90,25 @@ export class BtnProfileComponent extends WidgetBaseComponent
                       actionBtn: appsConfig.features[id],
                     },
                   })
+                }
                 return undefined
               },
             )),
           }),
       )
-      console.log(this.featuresConfig)
     }
   }
-
+  checkhasRole(role: string[]): boolean {
+    let returnValue = false
+    role.forEach(v => {
+      if ((this.configSvc.userRoles || new Set()).has(v)) {
+        returnValue = true
+      }
+    })
+    return returnValue
+  }
   ngOnInit() {
-    // tslint:disable
-    // console.log(this.widgetData)
-    // tslint:enable
     this.setPinnedApps()
-    this.getPortalLinks()
     if (this.widgetData) {
       if (this.widgetData.actionBtnId) {
         this.id = this.widgetData.actionBtnId
@@ -119,6 +122,9 @@ export class BtnProfileComponent extends WidgetBaseComponent
       if (this.widgetData.disableAllFeatures) {
         this.disableAllFeatures = this.widgetData.disableAllFeatures
       }
+    }
+    if (this.featuresConfig && this.featuresConfig.length > 0) {
+      this.getPortalLinks()
     }
 
   }
@@ -158,7 +164,6 @@ export class BtnProfileComponent extends WidgetBaseComponent
 
   getPortalLinks() {
     this.featuresConfig.forEach((feature: any) => {
-      // console.log(feature)
       if (feature.id === 'portal_admin' && feature.featureWidgets.length > 0) {
         feature.featureWidgets.forEach((fw: any) => {
           this.portalLinks.push(fw)
@@ -169,6 +174,5 @@ export class BtnProfileComponent extends WidgetBaseComponent
         })
       }
     })
-    // console.log(this.portalLinks)
   }
 }
