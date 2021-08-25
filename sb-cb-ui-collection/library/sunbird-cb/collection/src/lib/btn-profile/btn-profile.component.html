@@ -13,7 +13,7 @@
 <a href="javascript:void(0)" mat-icon-button i18n-aria-label title="option" class="new-margin"
   #rootTrigger="matMenuTrigger" [matMenuTriggerFor]="settingsMenu" role="link">
   <span class="flex flex-column flex-middle">
-    <ws-widget-avatar-photo [photoUrl]="profileImage" [name]="givenName" size="m">
+    <ws-widget-avatar-photo [photoUrl]="profileImage" [name]="givenName" size="s">
     </ws-widget-avatar-photo>
   </span>
 </a>
@@ -46,7 +46,7 @@
   <section class="padding-s border-bottom min-heig">
     <a role="link" routerLink="/app/person-profile/me" class="all-features" id="viewprofile">
       <div class="float-left">
-        <ws-widget-avatar-photo [name]="givenName" [size]="sizeM" [photoUrl]="profileImage"></ws-widget-avatar-photo>
+        <ws-widget-avatar-photo [name]="givenName" [size]="'m'" [photoUrl]="profileImage"></ws-widget-avatar-photo>
       </div>
       <div class="inline-block margin-left-s pfname margin-eight">
         <p class="mat-subheading-2">{{ givenName }}</p>
