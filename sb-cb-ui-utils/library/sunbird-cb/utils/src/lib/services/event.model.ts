@@ -1,3 +1,4 @@
+
 export namespace WsEvents {
   export interface IWsEventsFromWidget {
     type: 'widget'
@@ -59,6 +60,7 @@ export namespace WsEvents {
     StateChange = 'StateChange',
     HeartBeat = 'HeartBeat',
     Search = 'Search',
+    Feedback = 'Feedback',
   }
 
   export interface IWsEventTelemetry {
@@ -78,11 +80,18 @@ export namespace WsEvents {
     currentPage: number
     totalPage: number
     activityStartedAt: Date | null
+    object: any
   }
   export type WsEventTelemetryPDF = IWsEvents<IWsEventTelemetryPdfData>
 
   // Interact Telemetry Event
   export interface IWsEventTelemetryInteract extends IWsEventTelemetry {
+    type: string
+    subType?: string
+    object: any
+  }
+
+  export interface IWsEventTelemetryFeedback extends IWsEventTelemetry {
     type: string
     subType?: string
     object: any
@@ -104,6 +113,7 @@ export namespace WsEvents {
     // mimeType: string
   }
   export type WsEventTelemetryInteract = IWsEvents<IWsEventTelemetryInteract>
+  export type WsEventTelemetryFeedback = IWsEvents<IWsEventTelemetryFeedback>
   export type WsEventTelemetrySearch = IWsEvents<IWsEventTelemetrySearch>
   export type WsEventTelemetryHeartBeat = IWsEvents<IWsEventTelemetryHeartBeat>
 
