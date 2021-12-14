@@ -17,23 +17,23 @@ export class TelemetryService {
   previousUrl: string | null = null
   telemetryConfig: NsInstanceConfig.ITelemetryConfig | null = null
   pData: any = null
-  environment: any
   contextCdata = []
+  environment: any
 
   externalApps: any = {
     RBCP: 'rbcp-web-ui',
   }
   constructor(
-    @Inject('environment') environment: any,
     private configSvc: ConfigurationsService,
     private eventsSvc: EventService,
     // private authSvc: AuthKeycloakService,
     private logger: LoggerService,
+    @Inject('environment') environment: any,
   ) {
-    this.environment = environment
     const instanceConfig = this.configSvc.instanceConfig
     if (instanceConfig) {
       this.telemetryConfig = instanceConfig.telemetryConfig
+      this.environment = environment
       this.telemetryConfig = {
         ...this.telemetryConfig,
         pdata: {
@@ -46,7 +46,7 @@ export class TelemetryService {
         // tslint:disable-next-line: no-non-null-assertion
         channel: this.rootOrgId || this.telemetryConfig.channel,
         sid: this.getTelemetrySessionId,
-
+        
       }
       this.pData = this.telemetryConfig.pdata
       this.addPlayerListener()
@@ -346,17 +346,19 @@ export class TelemetryService {
             console.log('Error in telemetry interact', e)
           }
         } else {
-          let interactid
-          if (event.data.type === 'goal') {
-            interactid = page.pageUrlParts[4]
-          }
+          // let interactid
+          // if (event.data.edata.type === 'goal') {
+          //   interactid = page.pageUrlParts[4]
+          // }
           try {
             $t.interact(
               {
-                type: event.data.type,
-                subtype: event.data.subType,
+                type: event.data.edata.type,
+                subtype: event.data.edata.subType,
                 // object: event.data.object,
-                id: (event.data.object) ? event.data.object.contentId || event.data.object.id || interactid || '' : '',
+                id: (event.data.edata && event.data.edata.id) ?
+                    event.data.edata.id
+                    : '',
                 pageid: event.data.context && event.data.context.pageId ||  page.pageid,
                 // target: { page },
               },
@@ -410,7 +412,7 @@ export class TelemetryService {
               },
               object: {
                 id: event.data.object.contentId || event.data.object.id || '',
-                type: event.data.type || '',
+                type: event.data.edata.type || '',
                 ver: `${(event.data.object.version || '1')}${''}`,
                 rollup: {},
               },
