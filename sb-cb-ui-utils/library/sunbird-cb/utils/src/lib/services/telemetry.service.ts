@@ -24,16 +24,16 @@ export class TelemetryService {
     RBCP: 'rbcp-web-ui',
   }
   constructor(
+    @Inject('environment') environment: any,
     private configSvc: ConfigurationsService,
     private eventsSvc: EventService,
     // private authSvc: AuthKeycloakService,
     private logger: LoggerService,
-    @Inject('environment') environment: any,
   ) {
+    this.environment = environment
     const instanceConfig = this.configSvc.instanceConfig
     if (instanceConfig) {
       this.telemetryConfig = instanceConfig.telemetryConfig
-      this.environment = environment
       this.telemetryConfig = {
         ...this.telemetryConfig,
         pdata: {
@@ -46,7 +46,6 @@ export class TelemetryService {
         // tslint:disable-next-line: no-non-null-assertion
         channel: this.rootOrgId || this.telemetryConfig.channel,
         sid: this.getTelemetrySessionId,
-        
       }
       this.pData = this.telemetryConfig.pdata
       this.addPlayerListener()
