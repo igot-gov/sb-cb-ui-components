@@ -203,11 +203,13 @@ export * from './lib/graph-general/graph-general.service'
 
 export * from './lib/left-menu/left-menu.model'
 export * from './lib/left-menu/left-menu.module'
+export * from './lib/left-menu/left-menu.service'
 export * from './lib/left-menu-without-logo/left-menu-without-logo.module'
 export * from './lib/left-menu-without-logo/left-menu-without-logo.model'
 export * from './lib/group-checkbox/group-checkbox.module'
 export * from './lib/scrollspy-left-menu/scrollspy-left-menu.module'
 export * from './lib/btn-feature/btn-feature.module'
+
 
 export * from './lib/ui-admin-table/ui-admin-table.module'
 /* tslint:disable */

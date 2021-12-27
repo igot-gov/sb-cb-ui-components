@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core'
+import { LeftMenuService } from './left-menu.service';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { NsWidgetResolver, WidgetBaseComponent } from '@sunbird-cb/resolver'
 import { ILeftMenu, IMenu } from './left-menu.model'
@@ -11,8 +12,9 @@ import { defaultImg } from './base64.json'
 export class LeftMenuComponent extends WidgetBaseComponent
   implements OnInit, OnDestroy, NsWidgetResolver.IWidgetData<ILeftMenu>  {
   @Input() widgetData!: ILeftMenu
+  @Output() clickedTab = new EventEmitter<any>();
   // @Input() Source
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private leftMenuService: LeftMenuService) {
     super()
   }
   ngOnDestroy(): void {
@@ -75,5 +77,8 @@ export class LeftMenuComponent extends WidgetBaseComponent
       returnValue = true
     }
     return returnValue
+  }
+  public menuClick(tab: any) {
+    this.leftMenuService.sendMessage(tab)
   }
 }
