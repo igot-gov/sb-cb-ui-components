@@ -1,4 +1,4 @@
-import { LeftMenuService } from './left-menu.service';
+import { LeftMenuService } from './left-menu.service'
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
@@ -13,7 +13,7 @@ import {
   MatCardModule,
   MatSidenavModule,
   MatListModule,
-} from '@angular/material';
+} from '@angular/material'
 
 @NgModule({
   declarations: [LeftMenuComponent],
@@ -34,6 +34,6 @@ import {
   exports: [
     LeftMenuComponent,
   ],
-  providers:[LeftMenuService]
+  providers: [LeftMenuService],
 })
 export class LeftMenuModule { }
